@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Vanalir</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="313e0c57-215f-80d0-82ef-e64d7dc71f5e" class="page sans"><header><h1 class="page-title" dir="auto">Vanalir</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-orange">Tiefling</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Text</th><td>Vanalir is a Tiefling nation in Geoctum, burdened by prejudice and the knowledge that their world is a collection of &quot;Pulled&quot; fragments. Governed by the Council of Veiled Wisdom, they prioritize self-preservation and the secrecy of their origins. Their diverse infernal features reflect their complex heritage, and they rely on resourcefulness in harsh desert conditions. The Council consists of respected scholars and geomancers, each with unique roles, overseeing the preservation of their sacred lore. Their settlements are fortified and designed for defense, while their view of deities is more scholarly than worshipful, acknowledging the powers that shaped their existence.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="315e0c57-215f-8078-96f4-f212f2f51b2a" class="">Vanalir is the Tiefling nation of Geoctum, forced together by widespread prejudice and bound by a unique, profound truth: they are the only people who know Geoctum is not a naturally formed world, but a collection of &quot;Pulled&quot; fragments. Known as &quot;The Hellspawn&quot; by most, they bear the dual burdens of demonic lineage and a secret that would shatter the foundations of every other culture on the continent. Their existence is one of stark self-reliance in the unforgiving southern lands.</p></div><div style="display:contents" dir="auto"><h1 id="315e0c57-215f-80dc-8a12-c3feb315be57" class="">Current Political Climate &amp; Relations</h1></div><div style="display:contents" dir="auto"><p id="315e0c57-215f-80fc-bc8f-d006dc9e0e33" class="">Vanalir politics are highly insular, focused on self-preservation, the protection of their sacred lore, and the careful management of their unique gifts and curses. Their interaction with the rest of Geoctum is minimal, almost non-existent. Vanalir is governed by the Council of Veiled Wisdom, a body composed of their eldest and most learned scholars, often those with the deepest ancestral memories or direct links to the ancient records of the Pull. Decisions are made with extreme caution, prioritizing the safety of their people and the secrecy of their truth above all else. They are pragmatic and often stoic, having faced generations of ostracization.</p></div><div style="display:contents" dir="auto"><p id="315e0c57-215f-8014-9b57-e331027ad725" class="">Their most sacred and protected sites are their libraries and lore-vaults, meticulously preserving the ancestral records of their lives before Geoctum and the terrifying details of the &quot;Pull&quot; event. These records are written in ancient, often strange, languages and guarded with fierce devotion. This knowledge defines them. Their most learned sages endlessly debate the nature and intentions of &quot;The Puller,&quot; seeing them as neither purely good nor evil, but a powerful, mysterious force that irrevocably shaped their destiny. They might actively seek more information about this entity, believing it holds the key to their past or future.</p></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-8099-9fd0-dd3afedd7306" class="">Their lands are mainly deserts or rocky and have little to no fertile land. This forces them to be incredibly resourceful, relying on deep wells, hardy desert flora/fauna, and perhaps unique methods of water collection or even alchemical creation of sustenance. Their architecture would be adapted to this, often built into rock faces or using natural caves for shelter from the elements.</p></div><div style="display:contents" dir="auto"><p id="315e0c57-215f-80af-8460-c57ce0f341a2" class="">Unlike Tieflings born into a single world with a common infernal lineage, the Vanalir display an astonishing variety of infernal features, reflecting the myriad planes from which they were pulled.</p></div><div style="display:contents" dir="auto"><ul id="315e0c57-215f-80e0-a055-f5d99a7ceb90" class="bulleted-list"><li style="list-style-type:disc">Horns: Ranging from small nubs, ram-like curls, or elegant, spiralling antlers, to sharp, straight spikes like a devil&#x27;s.</li></ul></div><div style="display:contents" dir="auto"><ul id="315e0c57-215f-8049-b13a-c81d2edd2387" class="bulleted-list"><li style="list-style-type:disc">Skin Tones: While often shades of red, crimson, or charcoal, one might also see Tieflings with skin of deep purple, obsidian black, ashen grey, or even subtle metallic sheens.</li></ul></div><div style="display:contents" dir="auto"><ul id="315e0c57-215f-8041-b634-c96505a5cf40" class="bulleted-list"><li style="list-style-type:disc">Eyes: Varying from solid black, burning orange, or molten gold, to iridescent green, opalescent white, or even eyes with no visible pupil.</li></ul></div><div style="display:contents" dir="auto"><ul id="315e0c57-215f-80cb-bde6-f0a25d8b6b0e" class="bulleted-list"><li style="list-style-type:disc">Tails: From long, prehensile, whip-like tails, to thick, muscular ones, or even short, stubby nubs. Some may have barbed or tufted ends.</li></ul></div><div style="display:contents" dir="auto"><ul id="315e0c57-215f-8026-9325-e89bd97898ba" class="bulleted-list"><li style="list-style-type:disc">Other Traits: Some may possess subtle cloven hooves, vestigial wings (non-functional), faint scales, or even a slight, unsettling aura of heat or cold.</li></ul></div><div style="display:contents" dir="auto"><p id="315e0c57-215f-80ee-bc68-e66391ecdc93" class="">This vast array of features means no two Vanalir might look exactly alike, even within the same family, as their lineages cross and blend over centuries on Geoctum.</p></div><div style="display:contents" dir="auto"><h2 id="315e0c57-215f-80de-a839-c1ca8105d3be" class="">The Council of Veiled Wisdom</h2></div><div style="display:contents" dir="auto"><p id="315e0c57-215f-8084-9975-c0d7f1fec04d" class="">The Council of Veiled Wisdom is the supreme governing body of the Vanalir nation, operating from the hidden depths of Akmenos. Composed of their eldest and most learned scholars, geomancers, and lore keepers, they are the sole mortal custodians of the truth about Geoctum&#x27;s creation, “the Pull”, and the only ones who truly understand the implications of the Veil&#x27;s weakening. Their decisions are guided by centuries of guarded knowledge and a profound sense of responsibility for their people&#x27;s survival in a world that shuns them.</p></div><div style="display:contents" dir="auto"><p id="315e0c57-215f-802a-bc66-e14f1512c7ab" class="">The Council typically consists of five to seven members, each a highly respected elder chosen for their intellect, wisdom, and their deep understanding of the Archives of the Pull. Their diverse appearances reflect the varied infernal lineages of the Vanalir.</p></div><div style="display:contents" dir="auto"><h3 id="315e0c57-215f-80b7-a923-d1d08b6d7240" class="">First Speaker Thytus</h3></div><div style="display:contents" dir="auto"><p id="315e0c57-215f-80b6-a0a8-d9465663dfd6" class="">A commanding male figure, appearing in his late 100s, with a regal bearing, deep crimson skin and eyes that seem to pierce through deception. His horns are small, elegant nubs that curve subtly. He wears simple, dark robes that emphasize his gravitas. He is calm, intensely intellectual, and profoundly pragmatic. Thytus is utterly dedicated to the truth, however unsettling, and believes the Vanalir&#x27;s knowledge is both their greatest burden and their ultimate strength. He is a master of logic and long-term planning, with little patience for emotional outbursts or short-sightedness.</p></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-809c-a2db-dd24e690f7db" class="">Thytus guides the Council&#x27;s debates, sets the agenda, and makes the final decisions. He oversees the security of the Archives and the training of new lore keepers. He is the primary contact for any rare, crucial diplomatic overtures made to other factions. He is the undisputed leader of the Council, the primary interpreter of the Archives of the Pull, and the most vocal advocate for the Vanalir&#x27;s long-term survival. He is the chief strategist for protecting their secret and navigating the dangers of Geoctum.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-80f6-b193-ed1f6144d448" class="">Lore-Warden Knowledge</h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-80ab-812f-e2295f3a985a" class="">Knowledge is the primary guardian and curator of the Archives of the Pull. She is responsible for the physical preservation of the ancient texts, their translation, as many are in lost planar languages, and the education of new lore keepers. She has an encyclopaedic memory of the Pull&#x27;s countless individual tragedies. Knowledge spends most of her time within the Archives, meticulously restoring damaged texts, deciphering new fragments, and training apprentices. She advises the Council on historical precedents and the nuances of planar lore.</p></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-809c-a554-eb024deb08bd" class="">She is a gaunt figure, appearing in her early 100s, with eyes that seem perpetually shadowed by ancient sorrow and a pale lilac skin tone. Her horns are sharp and jagged, and she wears practical, worn leather, often covered in dust from the Archives. Her hands are calloused from handling brittle scrolls. She is quiet, meticulous, and deeply melancholic, yet fiercely protective of the Archives. Knowledge carries the emotional weight of thousands of lost worlds and displaced lives. She is distrustful of outsiders but driven by a profound sense of duty to ensure the truth is never forgotten.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-8011-ab16-f51c99d69781" class="">Geomancer Nith</h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-8052-95a4-e935dc9a5644" class="">A sturdy, grounded figure, appearing in their late 90s, with a no-nonsense demeanour, and a dark earthy skin tone. His horns are thick and ram-like. He wears practical, durable clothing, often stained with earth and mineral dust, and carries a simple, but potent, divining rod. He is practical, observant, and deeply connected to the land. Nith is less concerned with ancient texts and more with the living, breathing reality of Geoctum. He is pragmatic and direct, valuing tangible results and the stability of their people&#x27;s homes.</p></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-805a-b09e-d157c0943da1" class="">Nith leads expeditions to study geological anomalies, places wards to stabilize ground affected by planar energies, and advises on resource management in the harsh southern lands. He uses unique geomantic rituals to listen to the earth&#x27;s health. Nith is the Council&#x27;s expert on Geoctum&#x27;s physical and planar stability. They monitor the land for anomalies, study the Veil&#x27;s subtle energies, and advise on the best locations for new settlements or resource extraction. He is responsible for the well-being of towns like Malphas&#x27;s Rest.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-8067-a91a-dc664a2b6ea9" class="">Shadow-Speaker Kalvari</h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-80f8-9516-d98e44e703bf" class="">A slender, quiet figure, appearing in their early 100s, with eyes that seem to hold an ancient, knowing sadness. Her horns are thin and elegant and her skin a dark lilac and covered in feint red runes. She wears dark, flowing robes that allow her to blend into shadows. She is reserved, highly perceptive, and incredibly patient. Kalvari is a master of discretion and understands the value of information. She is deeply cynical about the surface world&#x27;s prejudices but also possess a detached curiosity about its workings.</p></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-8072-8eaf-d6878dbd120e" class="">Kalvari is the Council&#x27;s intelligence gatherer and the primary liaison, albeit a very distant one, with the outside world. She monitors surface activities, analyses rumours, and assess potential threats to the Vanalir&#x27;s secrecy. She specializes in subtle observation and interpreting the nuances of other cultures. Kalvari rarely leaves Akmenos, instead relying on a small network of highly trained, discreet scouts and informants (all Tieflings) who operate on the fringes of Vanalir territory, observing distant movements from Sourock or the Dragonborn Clans. She analyses reports, looking for any signs that the Pull&#x27;s secret might be in danger of being exposed.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-80c5-92ab-d7020de4e505" class="">Archivist Anirissa</h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-8046-968d-ead5e9a198b8" class="">A stoic and imposing figure, appearing to be one of the oldest on the Council, perhaps over 150 years old. Her infernal features are more subtle, blending into an appearance of profound antiquity and connection to the earth&#x27;s deepest layers. She wears robes woven from dark, coarse fibres, adorned with ancient, unidentifiable symbols, contrasting her aged pinkish skin. She is quietly profound, intensely observant, and often cryptic. Anirissa speaks rarely, but when she does, her words carry immense weight, often hinting at deeper, more unsettling truths. She is patient beyond measure and possess a detached, almost cosmic perspective on events. She is less concerned with surface politics and more with the fundamental stability of existence.</p></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-8037-b1d3-d71c88ebea73" class="">Anirissa spends much time in solitary contemplation within the deepest, most secure vaults of the Archives, where the most dangerous or unsettling texts are kept. She advises the Council on matters of profound planar instability, ancient prophecies that might predate the Pull, and the true nature of the Architect&#x27;s power. She might also be called upon to consult on the most disturbing of Veil Tear phenomena. Anirissa is a unique addition to the Council, representing the Chthonic lineages among the Vanalir, she brings a perspective on ancient, fundamental truths that predate even the known fiendish hierarchies. Anirissa specializes in interpreting the most obscure and unsettling sections of the Archives of the Pull, particularly those hinting at the raw, elemental forces involved in planar creation and destruction.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-8003-bd60-fa4bc7341c38" class="">Warden Justice</h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-8082-a1c6-f0de1217be2b" class="">A formidable figure, appearing in his late 80s, with a stern, unyielding expression. His build is often muscular and demeanour is one of quiet authority. He wears practical, reinforced leather armour over dark, functional clothing, often bearing the symbol of a balanced scale. He is stern but fair, and utterly incorruptible. Justice believes that strict adherence to law is paramount for the survival of their people, especially given the constant external prejudice and the internal pressures of their unique knowledge. He is pragmatic and decisive, valuing order and discipline above all else. He has little patience for lawbreakers or those who would compromise the Vanalir&#x27;s security.</p></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-8048-9df4-ccc71b89ce0c" class="">Justice commands the various city guards and patrols, ensuring their training and vigilance. He personally oversees investigations into serious crimes, particularly those that threaten the nation&#x27;s secrecy. He maintains a network of informants within the Vanalir communities to identify potential threats from within. Justice is the Council member directly responsible for enforcing law and order within all Vanalir towns and cities. He ensures that the strict laws designed to protect the Vanalir&#x27;s secrecy and survival are upheld without compromise.</p></div><div style="display:contents" dir="auto"><h2 id="316e0c57-215f-8016-97fb-ded853815717" class="">Relationship with other Nations</h2></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-8068-a829-f0db1848e675" class=""><a href="Mehdian%2030ae0c57215f80d192d5de592fdc88a0.html">Mehdian Republic</a></h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-80be-806d-c7a42e8898fb" class="">They harbour deep resentment for this prejudice and actively avoid contact unless absolutely necessary. Interaction is next to none.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-8044-9bdf-c7f81d0edc59" class=""><a href="Alfiya%20313e0c57215f80baa1b7ddb94ee85585.html">Alfiya</a> &amp; <a href="The%20Stoneheart%20Empire%20313e0c57215f8040ba06dc4508d02fcb.html">Stoneheart Empire</a></h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-802e-945a-cfdec434348f" class="">The long-lived Elves and Dwarves, while perhaps vaguely aware of the Tieflings in the south, have no reason to interact with them, and the Tieflings certainly don&#x27;t seek them out.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-800c-96a1-d6ba66c6f731" class=""><a href="The%20Wilders%20313e0c57215f80e593f2c1c222b39454.html">The Wilders</a></h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-80da-a30a-c9837848f26d" class="">Given the Wilders&#x27; nomadic nature, rare encounters might occur if a Wilder clan ventures far south. The Wilders share the general surface world&#x27;s apprehension towards the Tieflings but are less burdened by strict social taboos. Any interaction would be brief and wary.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-8008-bb42-d2bf6516dc89" class=""><a href="Dragonborn%20Clans%20313e0c57215f80c5ae57ce2be16a7eff.html">Dragonborn Clans</a></h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-80b8-ba9f-c4e79e24c269" class="">The Dragonborn clans are too consumed by their internal holy war to pay much attention to Vanalir, and vice-versa. There is no contact.</p></div><div style="display:contents" dir="auto"><h1 id="316e0c57-215f-801f-a21e-e6e889fb2d9b" class="">Settlements</h1></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-80bc-a5ac-f706fe9725d1" class="">The Tieflings exclusively inhabit a few fortified cities and a number of smaller, self-sufficient towns in the south. These settlements are designed for defense and resource management in a harsh environment. Only Tieflings are permitted entry to these communities, a necessity born of centuries of being shunned.</p></div><div style="display:contents" dir="ltr"><table id="316e0c57-215f-8022-96f9-e612cae79f4f" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-80a4-8807-f6af6aaaf134"><th id="QyEs" class="simple-table-header-color simple-table-header" style="width:269.6666666666667px"><strong>Name</strong></th><th id="tbTg" class="simple-table-header-color simple-table-header" style="width:156.65625px"><strong>Location</strong></th><th id="Gf}j" class="simple-table-header-color simple-table-header" style="width:653.65625px"><strong>Description</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-80aa-b1e2-f081d27e7f6d"><td id="QyEs" class="" style="width:269.6666666666667px">Akmenos (Capital)</td><td id="tbTg" class="" style="width:156.65625px">The southernmost and largest of the Vanalir cities, nestled deep within the most desolate and rugged parts of their territory, near a hidden underground spring.</td><td id="Gf}j" class="" style="width:653.65625px">Akmenos is a sprawling, labyrinthine city, much of it built underground or into vast canyon walls, designed for maximum concealment and defence against the harsh elements. Its architecture is more intricate than Dara&#x27;s, with hidden passages, magically warded chambers, and subtle planar sigils integrated into its design. It is a city of quiet scholarship and guarded secrets. Akmenos is the true heart of the Vanalir nation, housing the Council of Veiled Wisdom and the sacred Archives of the Pull. It is the centre of their unique planar research, historical preservation, and the training of their most sensitive scholars and geomancers. Its extreme isolation protects its invaluable knowledge.</td></tr></div><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-80e2-a7ae-cb39f4abc64e"><td id="QyEs" class="" style="width:269.6666666666667px">Dara</td><td id="tbTg" class="" style="width:156.65625px">The most northern of the Vanalir cities, situated at the very edge of their recognized territory.</td><td id="Gf}j" class="" style="width:653.65625px">Dara is a city built into and around a series of natural rock formations, its structures often carved directly from the red and ochre stone. Its architecture is stark, functional, and heavily fortified, with watchtowers and defensive positions integrated into the landscape. It serves as the primary defensive bulwark against any (rare) incursions or curious expeditions from the north. The air is dry and often carries the scent of dust and hardy desert plants. Dara is the Vanalir&#x27;s &quot;outward-facing&quot; city, though its outward face is one of deterrence. It manages the very limited, cautious trade that might occur with desperate surface merchants (often through neutral intermediaries) and monitors activity from the north. It is a centre for pragmatic defence and resource gathering in the arid borderlands.</td></tr></div><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-8045-acc1-efc9531cf858"><td id="QyEs" class="" style="width:269.6666666666667px">Eldoran</td><td id="tbTg" class="" style="width:156.65625px">A fortified town situated near a rare, hidden oasis, making it a critical water source in the arid landscape.</td><td id="Gf}j" class="" style="width:653.65625px">A cluster of sturdy, low-slung buildings built around its precious water source, protected by a palisade and watchtowers. Its people are experts in water conservation and desert survival. A vital watering point and a hub for hardy desert foragers and prospectors.</td></tr></div><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-80c8-8bd4-e49dd139f7c1"><td id="QyEs" class="" style="width:269.6666666666667px">Marbas</td><td id="tbTg" class="" style="width:156.65625px">A mining town nestled in a craggy, mineral-rich region, specializing in extracting rare metals and crystals adapted to the harsh environment.</td><td id="Gf}j" class="" style="width:653.65625px">A utilitarian town of rough-hewn stone and excavated tunnels, with the constant clang of picks echoing through the air. Its people are skilled miners and smiths, producing durable goods for the nation. A key source of raw materials for Vanalir craftsmanship and trade.</td></tr></div><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-80b9-9cd6-c14333f68ed9"><td id="QyEs" class="" style="width:269.6666666666667px">Zagan&#x27;s Watch</td><td id="tbTg" class="" style="width:156.65625px">A remote, elevated outpost town built on a high mesa or a prominent ridge, offering expansive views of the surrounding desert.</td><td id="Gf}j" class="" style="width:653.65625px">A small, heavily fortified settlement, primarily composed of watchtowers and barracks. Its people are vigilant scouts and sentinels. A crucial observation point for monitoring the vast, empty deserts and detecting any distant movements from outside their territory.</td></tr></div><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-802e-bcd1-d4186322b614"><td id="QyEs" class="" style="width:269.6666666666667px">Malphas&#x27;s Rest</td><td id="tbTg" class="" style="width:156.65625px">A quiet, reclusive farming town situated on an unnaturally fertile piece of land.</td><td id="Gf}j" class="" style="width:653.65625px"> The town itself is built modestly, with homes and communal structures integrated into the edges of the fertile land, designed to maximize cultivation space. The buildings are often made of packed earth and local stone, with roofs thatched with hardy, cultivated grasses. The air here is surprisingly moist and carries the scent of growing crops, a stark difference from the dry desert air. Malphas&#x27;s Rest is the agricultural heartland of the Vanalir nation, providing essential food resources (unique, hardy grains, desert fruits, and resilient vegetables) that are otherwise scarce in their territory. Its existence is a closely guarded secret, as its fertility makes it an invaluable and vulnerable asset.</td></tr></div><div style="display:contents" dir="ltr"><tr id="316e0c57-215f-80b3-93c8-ede36762588b"><td id="QyEs" class="" style="width:269.6666666666667px">Andras&#x27;s Pass</td><td id="tbTg" class="" style="width:156.65625px">A small, fortified waypoint guarding a narrow, treacherous mountain pass through a rocky range, connecting different regions of Vanalir territory.</td><td id="Gf}j" class="" style="width:653.65625px">A utilitarian collection of guardhouses and a small inn for travelers, designed to control movement through the pass. Ensures safe passage and communication between Vanalir communities, and serves as a defensive choke point.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h1 id="32be0c57-215f-805b-941f-dad94116719a" class="">View on Gods</h1></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-8037-b380-d935f46e57ee" class="">They do not rely on distorted myths, they rely on their Archives of the Pull, which contain detailed ancestral records of their lives before Geoctum and the &quot;cosmic abduction&quot; that brought them here.</p></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-80d6-a330-c231f279330f" class="">Because of their roots and their literal connection to the Lower Planes, their pantheon is less about worship and more about a grim acknowledgement of the powers that once governed their lives and still peer through the Veil.</p></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-804c-8231-f2fe883efe90" class="">The Vanalir records describe a &quot;Shaper of Worlds&quot; or &quot;Cosmic Abductor&quot;. They debate whether this being is a saviour who rescued them from a dying world or a monster who snatched them from their homes.</p></div><div style="display:contents" dir="auto"><h2 id="32be0c57-215f-8002-a103-c473f0cd81ab" class="">The Lords of the Pit (The Nine Hells)</h2></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-80e3-906e-ecf07926c12f" class="">The Vanalir do not worship the Archdevils in a traditional sense, they acknowledge them as cosmic constants. Their knowledge of the Nine Hells is scholarly and cautious.</p></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-8010-bea9-dc5e604cd9c9" class="">Asmodeus (Knowledge/Trickery): To the Vanalir, Asmodeus is the Great Jailer. They see the Veil not just as a barrier for the gods, but as a secondary cage that even the Lord of the Nine cannot easily breach. They study his methods to understand how to maintain their own secrecy and security.</p></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-8002-9d75-cf68c62f3a61" class="">Many Vanalir cities and individuals bear the names of devils (e.g., Dara, Akmenos, Malphas, Zagan). This isn&#x27;t necessarily out of evil intent, but as a way to reclaim their heritage and power in a world that hates them.</p></div><div style="display:contents" dir="auto"><h2 id="32be0c57-215f-80e0-bd2e-ff6782a2d9b4" class="">The Planar Perspective (The True Old Gods)</h2></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-8097-ae8d-ff6dac35e248" class="">While the Mehdian people worship the Radiant Mother as a saviour, the Vanalir see the Faerûn deities as displaced powers struggling to reach their lost children.</p></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-8062-bf89-ea9372aab7a8" class="bulleted-list"><li style="list-style-type:disc">Shar (Death/Trickery): As the goddess of loss and hidden secrets, Shar holds a dark resonance for the Vanalir. They view their current existence as a literal manifestation of her portfolio a life defined by the loss of their original world and the need for absolute secrecy to survive.</li></ul></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-800c-96c9-d2973213c717" class="bulleted-list"><li style="list-style-type:disc">Mystra (Arcana): Unlike the Alfiya who &quot;sing&quot; to Mystra, the Vanalir study her &quot;unraveling.&quot; They track Veil Tears and planar anomalies as if they are the fraying threads of her weave, using this data to predict where the world is physically or planarly unstable.</li></ul></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-8074-b92f-ea7e336d9275" class="bulleted-list"><li style="list-style-type:disc">Bane (War/Order): To the Vanalir, the &quot;Mad King&quot; of the Mehdian Empire wasn&#x27;t just a man, he was a symptom of a world lacking Bane’s Iron Logic.</li></ul></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-80c0-b039-e1c80ab0631b" class="bulleted-list"><li style="list-style-type:disc">Kelemvor (Death): The Vanalir believe he is still trying to reconcile his &quot;ledger&quot; for the souls that were snatched away to Geoctum. They keep meticulous records to ensure they are &quot;accounted for&quot; when the Veil eventually drops.</li></ul></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-8054-b166-f2f23ca60dec" class="bulleted-list"><li style="list-style-type:disc">Oghma (Knowledge): As the Vanalir are the only people who know the truth of their origin, they hold records of everything that has occurred in their domain, and attempt to document that which happens out of their domain (with great difficulty).</li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
