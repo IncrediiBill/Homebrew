@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Kytinn</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="313e0c57-215f-80be-bacf-e9eabb8db4b8" class="page sans"><header><h1 class="page-title" dir="auto">Kytinn</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-blue">Kytinn</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Text</th><td>Kytinn are small, ferret-like humanoids known for their intelligence and tinkering skills, living in underground networks called Burrows. They value resourcefulness and must undertake a Proving Run at 14 to prove their worth by acquiring valuable offerings for their Families. Kytinn society is insular, with strict laws against outsiders entering their Burrows, and they are organized into Families specializing in various trades, such as mechanics, herbalism, and espionage. Each Kytinn adopts a new name upon joining a Family, marking their transition to adulthood and societal contribution.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="31de0c57-215f-80ca-bd38-cb1d90c87033" class="">The Kytinn are a race of small, ferret-like humanoids known for their quick wits, boundless energy, and natural affinity for tinkering. They have adapted to survive in the cracks and corners of the world built by the larger races.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80c9-9a17-cc07eaa2360f" class="">The Kytinn&#x27;s ancestors were clever, communal burrow-dwellers from a world of vast, complex cave systems. Torn from their subterranean homes, they found themselves on the surface of a strange new world. Lacking the size or strength to compete directly with the other peoples, they survived through cunning, opportunism, and an incredible talent for scavenging and invention. </p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-808f-b24f-cce665e84d74" class="">Kytinn are slender and wiry, rarely standing taller than four feet. Their bodies are covered in a coat of short, dense fur, typically in earthy tones of brown, grey, and tan, often with darker markings around their eyes and on their limbs. They have long, flexible bodies, sharp intelligent faces with pointed snouts, and dark, inquisitive eyes that are always in motion. Their greatest assets are their hands, which are nimble and incredibly dextrous, perfect for disarming traps, mixing alchemical compounds, or assembling intricate mechanisms. Kytinn live fast, energetic lives. They reach physical and mental maturity around the age of 14 and are considered adults. Their natural lifespan is typically short compared to humans, averaging around 50 to 60 years. This accelerated life cycle contributes to their fast-paced, twitchy demeanour and the cultural importance of proving one&#x27;s worth quickly.</p></div><div style="display:contents" dir="auto"><h1 id="31de0c57-215f-809b-a43a-fafdde02e0a5" class="">Culture and Society</h1></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80f0-9baf-ca030474220e" class="">The Kytinn are a communal people, living in sprawling underground networks of tunnels and chambers known as Burrows. While they may have a presence on the surface, their homes are below ground, safe and defensible. Each Burrow is not a single entity, but is controlled by several distinct, powerful Families. These are not families in the traditional blood-sense, but more like a combination of a guild, a clan, and a business enterprise. A Kytinn&#x27;s primary loyalty is to their Family. While the Families within a Burrow are often rivals in trade and influence, they are co-dependent and will unite to defend the Burrow against any external threat.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80b6-af5d-d54d1aac6ff1" class="">Kytinn culture values cleverness and resourcefulness above all else. A Kytinn who can turn a piece of scrap into a functional tool or a handful of herbs into a potent toxin is highly respected. Upon reaching adulthood at the age of 14, every Kytinn must undertake the Proving Run. They are given a basic set of travelling gear and are formally, though not unkindly, exiled from the safety of their home Burrow. They are now considered &quot;Unproven&quot; and must venture into the wider world of Geoctum.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8005-bb39-e869487ed2de" class="">While individual Kytinn are often found scattered across Geoctum on their Proving Runs, the Kytinn as a people are profoundly insular and secretive. Their society is built on two unwavering, ancient laws: know the Paths, and close the doors behind you. From the moment they are old enough to understand stories, young Kytinn are taught the geography of their world, the hidden world. They learn the Great Paths, the network of ancient tunnels, deep roads, and secret ways that connect all the major Burrow-Cities. This knowledge is drilled into them through songs, rhyming journeys, and intricate maps woven into tapestries or carved onto cavern walls. A Kytinn knows the location of every other Burrow, even if they have never set foot outside their own. This learned knowledge is reinforced by an innate ability unique to their race, a gift from their burrowing ancestors known as Tunnel-Sense. A Kytinn can feel the subtle, deep vibrations of the earth, allowing them to:</p></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-801f-9d96-d50c90baefc6" class="bulleted-list"><li style="list-style-type:disc">Sense the low, constant hum of a populated Burrow-City through miles of solid rock.</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80a9-80a7-eef14b384c31" class="bulleted-list"><li style="list-style-type:disc">Navigate perfectly in absolute darkness, feeling the texture and density of the path ahead.</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80e5-9e34-cd397930a42c" class="bulleted-list"><li style="list-style-type:disc">Detect the approach of large creatures or rockfalls long before they would be audible.</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80e6-ad37-dfa30783d0d3" class="bulleted-list"><li style="list-style-type:disc">This combination of education and instinct means that no Kytinn is ever truly lost. They always know the way home.</li></ul></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8074-834e-cc6ebc59cb82" class="">The second, and most important, law is absolute: No outsiders may enter a Burrow. This rule is inviolable and born from millennia of harsh experience.</p></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-8022-bb37-db1610af5cf9" class="bulleted-list"><li style="list-style-type:disc">Security: Kytinn are small. Their tunnels and homes are built to their scale. A single human, dwarf, or orc could cause immense damage just by being clumsy, and a hostile one could massacre a Family with ease in the tight corridors. The Burrows are their only true sanctuary. </li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-8086-98fa-e1508fa30b84" class="bulleted-list"><li style="list-style-type:disc">Historical Trauma: The Kytinn have a fragmented, instinctual understanding that the wider world is what destroyed their ancestral home. Outsiders, or &quot;surface-folk,&quot; are seen as agents of chaos and unpredictable danger. </li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80a3-bc98-defa4bb957ed" class="bulleted-list"><li style="list-style-type:disc">Resource Protection: The Burrows contain the wealth and knowledge of the Families—the Cog-Hand workshops, the Still-Root fungus farms, the Grey-Trade smuggling maps. Allowing an outsider access would be giving away their most precious secrets and competitive advantages. </li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80e5-aecf-e9cc6ef6c0c0" class="bulleted-list"><li style="list-style-type:disc">Purity: The delicate ecosystems of the Burrows, especially the farms and alchemy labs of Root-Warren and Glimmer-Deep, could be devastated by foreign contaminants or diseases brought in by an outsider. The law is a form of biological quarantine.</li></ul></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80de-8e28-f4476742df10" class="">An entrance to a Burrow is masterfully camouflaged, appearing as nothing more than a badger hole, a crack in a rock face, or a hollow log. Any non-Kytinn who stumbles upon one and tries to enter will first be met by a series of clever, non-lethal traps designed to confuse, disorient, and eject them. If the intruder persists, the response becomes swift and lethal.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80da-bb36-c1868f5bba3f" class="">The greatest crime a Kytinn can commit is to guide an outsider to a Burrow. The punishment for such a betrayal is to be stripped of one&#x27;s Family name and cast out forever, made truly homeless, a fate every Kytinn considers worse than death.</p></div><div style="display:contents" dir="auto"><h2 id="31de0c57-215f-80a2-bc4a-f72dcf6735e6" class="">The Proving Run</h2></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8000-aa20-e842325041cc" class="">The objective of the Proving Run is for the young Kytinn to acquire something of significant and tangible value that will benefit not just themselves, but a Kytinn Family. This Offering is the ultimate test of their cunning, resourcefulness, and ability to survive in the world of the &quot;big folk.&quot; The Offering can take many forms:</p></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80b4-b9bb-fa2b1662d870" class="bulleted-list"><li style="list-style-type:disc"><strong>A Piece of Lost Technology: </strong>A functional device from a ruin, a complex piece of machinery, or even just the blueprints for one.</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80d0-9b62-ffe79a1cf27a" class="bulleted-list"><li style="list-style-type:disc"><strong>A New Resource:</strong> The discovery of a new, sustainable food source, a hidden vein of rare ore, or a reliable source of clean water near the Burrow.</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-80d2-8aca-f017b7c3fded" class="bulleted-list"><li style="list-style-type:disc"><strong>A New Method or Formula:</strong> A powerful alchemical recipe, a new technique for metalworking, or an innovative design for a trap or tool.</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-8080-a846-c3f23138f39d" class="bulleted-list"><li style="list-style-type:disc"><strong>A Valuable Contract or Information:</strong> A lucrative, long-term trade agreement with an outside settlement, or a piece of vital intelligence that gives one Family a major advantage over its rivals.</li></ul></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8085-a758-e76dd8f4f2c1" class="">The Proving Run can last for months or even years. When the Unproven Kytinn believes their Offering is worthy, they return to their home Burrow. They must then present their findings to the leader of the Family they wish to join. The Family leader and their council will assess the Offering&#x27;s value. If the Offering is accepted, the Kytinn is welcomed back not as a child, but as a full adult member of that Family. Their exile is ended, and they are given a place in the Family&#x27;s hierarchy, contributing their skills to its prosperity. This is a moment of great celebration.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-800f-a9b5-e2a233ef5fa2" class="">If the Offering is rejected as being insufficient, the Kytinn remains Unproven. They are not cast out forever, but are sent back into the world to find something better, their social standing diminished until they can succeed. This is the greatest fear of any young Kytinn.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8014-8049-e66b8fd6cead" class="">This tradition is why so many Kytinn are found in the wider world, working as tinkers, traders, spies, and even bounty hunters.</p></div><div style="display:contents" dir="auto"><h2 id="31de0c57-215f-8007-98d3-cb67c1d8e7de" class="">The Joining</h2></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-807f-9ad5-f53a8f031529" class="">A Kytinn is born with a single, given name (like Vex). This name represents their individual identity, their potential, and their status as &quot;Unproven.&quot; It is the name they carry with them on their Proving Run.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8041-b9fe-f860ed9154fd" class="">When an Unproven Kytinn returns and presents their Offering to a Family, and that Offering is accepted, they undergo a formal adoption ceremony. During this ceremony, they take the name of their new Family and append it to their own given name, separated by a hyphen. This new, joined name is a mark of immense pride. It signifies that they are no longer a child, but a full adult member of Kytinn society, their chosen loyalty and specialisation within that society, and the unique skills and value they personally bring to their new Family.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80b1-804d-c3b12f1130c7" class="">The name becomes a story. &quot;Vex&quot; is an individual, but &quot;Vex-Ash-Paw&quot; is a master of the wastes, an expert in monster-part alchemy, and a valued member of the most hardy Kytinn Family.</p></div><div style="display:contents" dir="auto"><h1 id="31de0c57-215f-8092-a9de-c80466db6826" class="">Burrows</h1></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-805d-ae5a-f03a82cc9074" class=""><strong>Tinkertown</strong></h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80d2-acbd-f30cb5718944" class="">Located beneath a vast, ancient battlefield littered with the metal husks of forgotten war machines. The air hums with the sound of grinding gears and crackling energy.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80a0-b432-f59cf48198d5" class="">Glimmer-Deep</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8085-9cc3-cc0ecfb9c7e9" class="">Dug into a geode-rich cave system where massive crystals pulse with a soft, internal light. The tunnels are quieter here, filled with the gentle chiming of crystal resonating with movement.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-801f-92f3-f3fad4677f36" class="">Root-Warren</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80b6-bcb4-faba45cf5755" class="">A damp, earthy network of tunnels woven between the roots of an ancient, giant forest. The air smells of rich soil, moss, and a hundred different herbs.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80e2-9274-c6e70f7968ba" class="">The Sump</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8018-bb38-da5d1158960b" class="">A labyrinth of forgotten sewer systems, abandoned cellars, and secret tunnels directly beneath Olden&#x27;s Ford. The Sump is a place of secrets, shortcuts, and the quiet flow of information.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80d6-bec7-e2cdd81a77f2" class="">The Kiln</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8052-aef6-c7fb3bf91bb0" class="">Dug into the hot, volcanic rock on the very border of the Ash Wastes, near Grimfang Holdfast. The air is perpetually warm and smells of sulphur and hardening resin.</p></div><div style="display:contents" dir="auto"><h1 id="31de0c57-215f-8067-91d3-fb1ef75a6238" class="">Families</h1></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80c3-b604-f1c1a24b5eba" class="">Cog-Hand</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80e1-9e57-f0f76cbfd105" class="">Cog-Hand members often have grease-stained fur and paws. They accessorise with functional items like magnifying goggles worn on their foreheads, and often have small tools tucked into their belts or woven into their fur. The Cog-Hands are the master mechanics and inventors of the Kytinn. They believe that true value lies in function and innovation. They specialise in mechanical engineering, clockwork devices, salvage, and weapon augmentation. They are responsible for most of the Kytinn&#x27;s defensive systems and complex tools.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-802a-aa09-e4dae961ec0a" class="">A young Kytinn seeking to join the Cog-Hands must bring back a significant piece of technology, a rare schematic or blueprint, a new type of metal alloy, or an invention of their own design that is deemed both clever and useful.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-8048-ac21-e6cb213e6299" class="">Crystal-Vein</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8027-b39e-fa2acdbbd80a" class="">The Crystal-Veins are artisans and mystics, fascinated by the inherent properties of minerals, gems, and light. The focus on mineralogy, gem-cutting, and a unique form of alchemy that uses powdered crystals and light refraction to create illusions, potions of fortitude, and signalling devices. Crystal-Vein Kytinn are cleaner and more refined than their cousins. They adorn themselves with polished stone and crystal jewellery and favour clothing dyed in deep, vibrant colours that catch the light of their home.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8097-9f52-d364ad1aff2e" class="">Kytinn wishing to join the Crystal-Vein family must return with an unblemished, massive gemstone; a rare crystal with a previously unknown magical property; a technique for cutting gems in a new and more brilliant way; or a map to an undiscovered mineral deposit.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80cd-986d-c1b46cd8473f" class="">Still-Root</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80d7-92fa-f6dec7b141dc" class="">The Still-Roots are the naturalists of Kytinn society. Still-Root Kytinn often have bits of leaves or dirt in their fur. They dress in simple, woven plant-fibre clothing and carry leather pouches filled with herbs, seeds, and tinctures. Their paws are often stained with chlorophyll or berry juice. They are masters of herbalism, agriculture, poison-craft, and potent healing salves. They cultivate vast underground fungus farms and herb gardens, providing much of the food and medicine for the other Burrows.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8027-be6d-dde2ba220dc2" class="">They seek from the Unproven a living sample of a rare and powerful plant; the secret formula for a potent antidote or venom from another culture; a method for cultivating a difficult but valuable crop; or the discovery of a new, edible species of fungus.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-8086-9415-c2d08ac06222" class="">Grey-Trade</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-804a-a3ec-c434ec2bc820" class="">The Grey-Trades are spies, information brokers, and smugglers. They specialise in espionage, blackmail, fencing stolen goods, and manipulating the economies of the &quot;big folk&quot; from the shadows. They are the wealthiest, if least trusted, Family. Grey-Trade Kytinn are chameleons. In the Burrow, they are well-dressed and prosperous. On the surface, they can adopt any number of disguises. They are fast talkers with shifty eyes, masters of blending in and going unnoticed.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80ee-8f49-c687a76fc364" class="">They accept a piece of high-value intelligence that can be leveraged against a merchant guild or noble; a secret map of a smuggling route into a fortified city; a long-term contract with a powerful spymaster; or the recovery of a compromised ledger or other incriminating document.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-8062-97be-ff2198e8948f" class="">Ash-Paw</h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-807a-a303-cc204757f966" class="">The Ash-Paws are the ultimate survivalists and pragmatists, thriving in an environment that would kill anyone else. Ash-Paw Kytinn are hardy and weather-beaten. Their fur is often singed, and they wear clothing made from the cured hides and leathers of the creatures they hunt. They are often adorned with claws, fangs, or spines as practical, intimidating decoration. They are masters of crafting survival gear, monster-part alchemy, and weapon-making. They use the unique bones, hides, and organs of Ash Waste creatures to create powerful weapons, resilient armour, and potent combat elixirs</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80af-986e-cc5114f446e1" class="">Any Kytinn seeking to join the Ash-Paw’s must bring the untainted heart of a rare and powerful wasteland beast; a new method for reinforcing leather with monster chitin; the location of a basilisk nesting ground; or a lucrative, exclusive contract to supply a mercenary company (like the Slag Breakers) with combat stimulants.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
