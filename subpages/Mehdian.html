@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Mehdian
+</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="30ae0c57-215f-80d1-92d5-de592fdc88a0" class="page sans"><header><h1 class="page-title" dir="auto">Mehdian<br/></h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-yellow">Aasimar</span><span class="selected-value select-value-color-purple">Dwarf</span><span class="selected-value select-value-color-blue">Elf</span><span class="selected-value select-value-color-green">Gnome</span><span class="selected-value select-value-color-pink">Half-Elf</span><span class="selected-value select-value-color-brown">Half-Orc</span><span class="selected-value select-value-color-gray">Halfling</span><span class="selected-value select-value-color-orange">Human</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Text</th><td>The Mehdian Republic is a prominent nation on Geoctum, transitioning from a tyrannical human-only power to a beacon of reconciliation and stability. Following the death of the Mad King, a new capital named Valoria was established, promoting internal development and trade while facing internal threats from loyalists seeking to restore the old regime. The Council of Regents, comprising leaders focused on military, cultural affairs, and the common people&#x27;s welfare, aims to rebuild trust and foster peace, despite ongoing challenges with neighboring nations and internal factions. The Mehdian faith, centered around the Radiant Mother, emphasizes community and hope, influencing daily life and governance.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8048-8a76-dacd256f58af" class="">The Mehdian (Meh-dian) Republic is the dominant nation on Geoctum. Once the continent-spanning, tyrannical human only power of the Dark Age, it now endeavours to be a beacon of reconciliation and stability. This duality defines its current existence, as it attempts to forge a new identity while grappling with the long shadow of the Mad King&#x27;s rule. A more distributed presence, likely centred around their original capital in a fertile plain, with other cities acting as regional hubs.</p></div><div style="display:contents" dir="auto"><h1 id="30ae0c57-215f-8077-a83b-e3f05b756e86" class="">Current Political Climate &amp; Relations</h1></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-804b-aebd-dfb0295c12bb" class="">The Mehdian&#x27;s current political landscape is a complex tapestry of reform, lingering resentment, and a determined effort to rebuild trust. </p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8056-9809-c652d6b76a75" class="">The death of the King shattered the Mehdian command structure and brought an end to the war. In the aftermath, the victorious Alliance made a profound symbolic choice. Viewing Eastway as a place tainted by tyranny, they chose to abandon it as the seat of power.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8044-a79a-e0c2698138c1" class="">To signify a true new beginning, they established a new capital, Valoria, in the fertile Mehdian heartland, and opened their citizenship to races from all over the continent. This new city and opening to other races, built with open architecture and dedicated to peace, became the home of the newly formed Council of Regents. They focus on internal development, trade, and diplomacy. However, their authority doesn&#x27;t extend far beyond their city borders, leading to a focus on making their core cities exemplary. </p></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8089-bf99-fc31e97e81cd" class="">The Mehdian&#x27;s most significant internal threat in the Echoes of the Empire. The current government is constantly vigilant against these clandestine loyalists who seek to restore the Mad King&#x27;s oppressive rule. This struggle often manifests as political manoeuvring, accusations of treason, and quiet disappearances within the capital. The Mehdian fears a resurgence of the Dark Age more than any external threat.</p></div><div style="display:contents" dir="auto"><h2 id="30ee0c57-215f-8048-84ad-ea1a5d9adf7a" class="">Council of Regents</h2></div><div style="display:contents" dir="auto"><h3 id="30ee0c57-215f-8083-874a-d054738e5d4d" class="">Council Leader: High Regent Myrna Netsk</h3></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-806b-a21d-d7bad8dd76e6" class="">A woman in her late 50s, with a dignified bearing, wise, compassionate eyes, and streaks of grey in her neatly braided brown hair. She often wears robes of deep blue or green, embroidered with symbols of peace and growth. She is the most prominent and influential voice on the Council, often acting as its public face. Myrna embodies the hopes of the Free Age.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8037-9220-cba5f0b3b5d5" class="">She is genuinely committed to the ideals of peace, reconciliation, and rebuilding Mehdian&#x27;s reputation. She believes profoundly in the inherent goodness of humanity and strives to foster positive relations with other races. She is a skilled orator and diplomat, though perhaps a little naive about the true depth of lingering resentments, both from other races and within her own. She trusts in due process and legal reform.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-808a-983b-f966436e8201" class="">Myrna is, however, vigilant against the Echoes of the Old Empire, seeing them as a dangerous and misguided threat to Mehdian&#x27;s very soul.</p></div><div style="display:contents" dir="auto"><h3 id="30ee0c57-215f-80f1-a6c1-cb789af0ff1d" class="">Regent Commander Theron Wolfclaw</h3></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80ed-a6fb-c321186ab5bc" class="">The Council&#x27;s voice for military, defense, and resource management. He oversees the Mehdian military and the protection of trade routes.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80e1-86b4-d61e7ce5f235" class="">A burly, grizzled man in his early 60s, a veteran commander with a neatly trimmed beard and a stern, weathered face. He often wears practical, well-maintained uniform attire, even in Council meetings, always with a sheathed sword at his hip.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8012-9eaf-f24256c329bf" class="">A pragmatist above all else. He believes in strength as a deterrent and is wary of showing weakness. While he supports the Council&#x27;s goals of peace, he views it as a fragile state that must be constantly guarded. He is deeply loyal to the Mehdian people and will prioritize their safety above all else, even if it means unpopular decisions. He&#x27;s tired of war but recognizes its necessity.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8032-b50b-c25bb2acbaea" class="">He comes from a line of great warriors, and his ancestor served during the tail end of the Mad King&#x27;s reign but was quickly instrumental in the coup that deposed him, seeing the King&#x27;s madness as a threat to Mehdian&#x27;s very existence. He believes it&#x27;s imperative to learn from it, not simply forget it.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80d3-aba6-ec3626ab26c0" class="">He&#x27;s concerned by the rising banditry from Ragged Crowns and Grimfang Nomads impacting trade. He&#x27;s also acutely aware of the Echoes of the Old Empire, seeing them as an internal cancer that must be excised for Mehdian&#x27;s survival. He would be the one pushing for active investigation and counterintelligence against them.</p></div><div style="display:contents" dir="auto"><h3 id="30ee0c57-215f-801f-88f6-ef94fb4af04e" class="">Regent Master Eldrin Blackwood</h3></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8081-8fe3-d9b7777508c7" class="">Eldrin is the Regent responsible for cultural affairs and historical preservation. He frequently speaks of the importance of learning from the past and maintaining tradition. A man in his early 50s, with a lean build, sharp features, and a precise, almost scholarly demeanour. He has a precise, resonant voice and favours rich, traditional Mehdian attire that hints at a noble lineage.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-805e-a4e5-ea8baeabcafb" class="">He is calm, collected, and highly articulate, often sounding reasonable and wise. He stresses the importance of order and stability above all else. He frequently laments the chaos of the Free Age and the loss of respect for authority.</p></div><div style="display:contents" dir="auto"><h3 id="30ee0c57-215f-8006-aa85-fa0fc5be290f" class="">Regent Speaker Bella Cadence</h3></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8070-b194-d9030f54f0d6" class="">Bella is the voice of the common people and urban trades. She champions policies that benefit merchants, artisans, and the working class, often pushing for pragmatic solutions to daily problems like food prices or housing. A lively woman in her late 30s, with a quick smile and expressive hands. She dresses in well-made but practical clothing, eschewing noble finery. Her dark auburn hair is often tied back loosely.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8008-9c8d-ff43e6a925e6" class="">Her family suffered economic hardship during the Mad King&#x27;s later years, forcing them to work their way up. She views the Dark Age as a time of unnecessary suffering that must never be repeated, and distrusts anything that smacks of unchecked aristocratic power.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80a5-a9ce-fd3a06b1e0d8" class="">She is the most direct and approachable council member, and is fiercely protective of the populace. She&#x27;s less concerned with grand historical narratives or military strategy, focusing instead on the tangible well-being of the Mehdian citizens. She can be stubborn and distrustful of high-minded ideals that don&#x27;t translate to real-world improvements. She&#x27;s a strong advocate for public works and stable trade.</p></div><div style="display:contents" dir="auto"><h3 id="30ee0c57-215f-8056-bf9b-e087f9ac3cc9" class="">Regent Lumina Veridia</h3></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8026-91a1-f0f2c4fa6757" class="">Lumina is the Council&#x27;s expert on magical affairs, obscure lore, and diplomatic relations with non-human factions, particularly Alfiya. She often serves as the bridge between pragmatic governance and arcane considerations. A serene woman in her early 30s, with intelligent, often distant, silver eyes and long, straight black hair. She wears simple, unadorned robes, sometimes embroidered with subtle astronomical or magical symbols. She has a quiet, thoughtful demeanour.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80c7-823a-cd45843d987a" class="">She comes from a long line of scholars who suffered during the Mad King&#x27;s purges of independent thought. She believes the loss of historical records is the greatest crime of that era and is dedicated to re-establishing academic freedom and expanding knowledge.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80dc-b0a0-f034841d6b5b" class="">She is highly intelligent, inquisitive, and methodical. She approaches problems from a scholarly perspective, valuing knowledge and understanding. She is often more open-minded to non-human perspectives than her peers, believing there&#x27;s much to learn from other cultures. She has a keen, intuitive grasp of magical flows and ancient mysteries.</p></div><div style="display:contents" dir="auto"><h2 id="30ae0c57-215f-8054-961a-fbff88fb7456" class="">Relationship with other Nations</h2></div><div style="display:contents" dir="auto"><h3 id="30ae0c57-215f-8064-8ba7-ea319e4ca008" class=""><a href="Alfiya%20313e0c57215f80baa1b7ddb94ee85585.html">Alfiya</a></h3></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-805a-b2bc-d75ef5bf6efa" class="">The Mehdian leadership offers constant overtures of peace and reparations to Cosminas, acknowledging the atrocities of the Dark Age. However, these efforts are often met with glacial slowness and profound distrust from the Elves, who remember every slight. Mehdian diplomats are often frustrated by what they perceive as Elven &quot;unwillingness to move on,&quot; unaware of the depth of the Elven memory or their true reasons for caution.</p></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8006-9db9-ebf963d8d463" class="">Younger generations of Mehdian genuinely feel no ill will and are often at the forefront of efforts to build bridges, often by establishing trade routes to mixed-race towns near Elven territories or participating in joint cultural festivals.</p></div><div style="display:contents" dir="auto"><h3 id="30ae0c57-215f-8043-9453-f306fa2d9eb1" class=""><a href="The%20Stoneheart%20Empire%20313e0c57215f8040ba06dc4508d02fcb.html">Stoneheart Empire</a></h3></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-80eb-9653-e3efb01e7dd2" class="">Trade exists, with Mehdian agriculture and crafts exchanging for Dwarven metals and engineering. However, the Dwarves&#x27; insularity and their memory of Dark Age raids create a constant undercurrent of suspicion. The Mehdian would be unaware of the growing Drow threat The Stoneheart Empire faces, and likely dismiss Dwarven warnings of &quot;things that tunnel too deep&quot; as hyperbole.</p></div><div style="display:contents" dir="auto"><h3 id="30ae0c57-215f-80d6-b95c-dadbce03499e" class=""><a href="The%20Wilders%20313e0c57215f80e593f2c1c222b39454.html">The Wilders</a></h3></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-803f-bf50-f072ffa7799c" class="">The Mehdian generally views the Wilders as unpredictable and somewhat uncivilized. They rarely interfere unless Wilder actions directly threaten Mehdian trade routes or settlements. Some Mehdian might try to civilise or settle Wilder clans, which is often met with resistance.</p></div><div style="display:contents" dir="auto"><h3 id="30ae0c57-215f-80f5-b236-c11c9e0682d8" class=""><a href="Vanalir%20313e0c57215f80d082efe64d7dc71f5e.html">The Vanalir</a></h3></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8019-9f5b-f409c4b945a6" class="">The Mehdian know the Vanalir as &quot;The Hellspawn&quot; and largely avoid their southern territories. Superstition runs high, with common folk spreading exaggerated tales of demonic rituals. Official Mehdian policy is non-interference, viewing them as a problem best left contained.</p></div><div style="display:contents" dir="auto"><h3 id="316e0c57-215f-8069-8f98-cc448ea23d89" class=""><a href="Dragonborn%20Clans%20313e0c57215f80c5ae57ce2be16a7eff.html">Dragonborn Clans</a></h3></div><div style="display:contents" dir="auto"><p id="316e0c57-215f-802a-8ac3-ec008f1ef9b1" class="">The Mehdian Empire clashed often with the Dragonborn clans when discovered, which has resulted in negative interactions even with the reformed Republic. Tensions are always high when they find the Dragonborn clans and they are wary to avoid their territory, especially in the north where they can be found close to the city of Icedrift. </p></div><div style="display:contents" dir="auto"><h1 id="30ae0c57-215f-8085-a9f5-f7dcdc4b5cf6" class="">Religion</h1></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8071-b99b-efd24d20e6c3" class="">The Mehdian faith, known as the Theocracy of the Radiant Mother, is a centralized religion that arose from the ashes of a forgotten history. It is a faith of practical piety, focused on community, hope, and the bounty of the earth, which is seen as a direct gift from their divine patron.</p></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-802d-abd4-d6ac45af0bb7" class="">The core tenet of the Mehdian faith is the belief in a singular, divine saint known as the Radiant Mother. In a world where the old gods are distant and silent, her direct intervention in the distant past is the foundation of their faith. Mehdians believe the Radiant Mother appeared to their ancestors in a time of great peril, not with fire and fury, but with the quiet promise of a new day. She is venerated as the source of all life-giving things—the fertile soil, the ripening grain, and the enduring strength of the Mehdian people.</p></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8009-a961-dbe406bdcef2" class="">The religion teaches that the virtues of compassion, vigilance, and honesty are not just moral guides but divine commands, given to the people to ensure their survival and prosperity. The Theocracy preaches a doctrine of shared purpose, where every individual&#x27;s labour, from the farmer&#x27;s toil to the priest&#x27;s prayer, contributes to the collective well-being.</p></div><div style="display:contents" dir="auto"><h2 id="30ae0c57-215f-804d-aea7-ec199ab8c04d" class="">The Radiant Mother</h2></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-80d1-a8e3-c01be272a2ed" class="">According to their sacred texts, the Radiant Mother was a divine saint who, in the dark and dangerous days of the early world, descended from a realm of pure light. She found the ancestors of the Mehdian’s lost and broken, but gave them a &quot;teardrop of radiant light&quot; that gave them the will to build and cultivate. She taught them how to draw life from the land and forge a new society.<br/>She has not made a direct appearance in an age, but the hope of her return is a powerful undercurrent in Mehdian society.</p></div><div style="display:contents" dir="auto"><h2 id="30ae0c57-215f-8054-907f-f4cd37b46b47" class="">The Cathedral of Radiant Tears</h2></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8005-873b-f2e7b39b597c" class="">The Cathedral of Radiant Tears in <strong>Itean </strong>is the physical and spiritual heart of this faith. The teardrop-shaped dome of stained glass represents the &quot;teardrop of radiant light&quot; the Radiant Mother gifted to their ancestors. It symbolises both the grief of a lost past and the immense hope she brought to them. The light that floods the cathedral&#x27;s interior is a physical manifestation of her enduring presence, a constant reminder of the gift she bestowed upon them.</p></div><div style="display:contents" dir="auto"><h2 id="30ae0c57-215f-802a-9ee7-c29f86eac52e" class="">The Theocracy</h2></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-80a8-bae7-dc0cd54c799c" class="">The faith is governed by a strict but benevolent Theocracy, headquartered in <strong>Itean</strong>. At its head is the Grand Lume, the spiritual leader who serves as the voice and interpreter of the Radiant Mother’s teachings. </p></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-808b-9ac3-c1585118c756" class="">The Grand Lume presides over a council of High Priests, each of whom embodies one of the core virtues of the faith:</p></div><div style="display:contents" dir="auto"><ul id="30ae0c57-215f-805c-8243-c7d7ae497c0c" class="bulleted-list"><li style="list-style-type:disc">Kaia, High Priestess of Compassion: Oversees charitable works and inter-racial diplomacy.</li></ul></div><div style="display:contents" dir="auto"><ul id="30ae0c57-215f-80b7-ad7f-f398e16c1f1e" class="bulleted-list"><li style="list-style-type:disc">Cassian, High Priest of Vigilance: Guards against external and internal threats to the city and faith.</li></ul></div><div style="display:contents" dir="auto"><ul id="30ae0c57-215f-80de-b0de-e713a1b82e99" class="bulleted-list"><li style="list-style-type:disc">Soriana, High Priestess of Honesty: Arbitrates disputes and ensures ethical conduct within the guilds and markets.</li></ul></div><div style="display:contents" dir="auto"><p id="30ae0c57-215f-8025-bf46-f791f28c065b" class="">This structure ensures that the faith is not just a set of beliefs, but a living, breathing part of Mehdian daily life, influencing everything from politics to trade</p></div><div style="display:contents" dir="auto"><h2 id="30ee0c57-215f-8033-b808-e0110215cd86" class="">Practices and Rituals</h2></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-805c-97d2-c07b27c234c2" class="">Mehdian piety is a practical matter. Prayers are often short, heartfelt thanks for a good harvest or a safe journey. Major religious ceremonies are tied to the seasons and the agricultural cycle. The most important is the Festival of First Light, a grand celebration that takes place at the spring equinox. During this festival, farmers bring the first seeds of the year to the Cathedral to be blessed by the Grand Lume. Other daily rituals include a communal meal at sunset, where families say a prayer of thanks for the day’s blessings and offer a small portion of their food to the Radiant Mother.</p></div><div style="display:contents" dir="auto"><h2 id="30ee0c57-215f-809b-98a8-f34ae81247f5" class="">The Radiant Blades</h2></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8000-865b-c3d673c2f159" class="">The Radiant Blades serves as the zealous military arm of the Theocracy, a brotherhood and sisterhood of paladins and clerics utterly devoted to the Radiant Mother and the principles of the Mehdian faith. They are the strongest and most devout individuals, chosen for their unwavering faith, martial prowess, and commitment to justice as defined by the Theocracy.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-803e-a80b-dbc85e2623c0" class="">They handle internal threats to the faith, such as rooting out heresy or dealing with cults, and provide a heavily armoured presence for important religious ceremonies or the transport of sacred relics. While the city watch handles common crime, the Radiant Blades deals with issues that directly challenge the spiritual authority or physical safety of the Theocracy itself. They are also tasked with protecting the Grand Lume and the High Priests.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80f5-9731-e9c279b2fe5f" class="">Members of the Radiant Blades wear heavy, polished plate armour, often with intricate golden trim that reflects light, giving them a truly radiant appearance. Their helmets are typically simple, unadorned visors, allowing their faces to be seen, emphasizing their humanity and devotion. They carry well-maintained swords, maces, or polearms, often etched with symbols of the Radiant Mother, such as the teardrop or a stylized sheaf of wheat. Their cloaks are typically a deep, rich blue, symbolizing the sky where the Radiant Mother is believed to reside.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-80c8-89f7-ecd211cfc066" class="">When on guard within the Cathedral, they don a special golden ceremonial armour. This includes a full plate helmet designed with an androgynous human face and stylized wings on the back of their breastplate, symbolizing purity and divine ascent. Instead of cloaks, they wear leather battle skirts of the same deep, rich blue over their armour which flow from their waist to below the knee, with a gap at the front to show off their golden armour.</p></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8073-b582-d95b605d65dc" class="">Their primary and ultimate loyalty is to the Radiant Mother herself. While they serve the Grand Lume and the Theocracy in her absence, their oaths are sworn directly to the divine saint. The belief that the Radiant Mother could one day return is a core tenet of their order, and they are prepared to be her sworn defenders, abandoning all other allegiances should she manifest. This singular devotion makes them both incredibly powerful and, potentially, a force that could act independently if they believed the Theocracy had strayed from the Radiant Mother&#x27;s true will.</p></div><div style="display:contents" dir="auto"><h1 id="30ee0c57-215f-808a-b556-ff343bbc25a0" class="">Villages, Towns, &amp; Cities</h1></div><div style="display:contents" dir="auto"><p id="30ee0c57-215f-8093-8a00-dbb4a169dbd6" class="">The Mehdian Republic, while no longer an empire, retains a network of significant villages, towns, and cities. Each of these cities serves as a vital hub for it’s local towns and villages, reflecting the nation&#x27;s efforts toward reform and its ongoing challenges.</p></div><div style="display:contents" dir="auto"><h3 id="30ee0c57-215f-8038-9dcd-d5e3614eeef7" class="">Cities</h3></div><div style="display:contents" dir="ltr"><table id="30ee0c57-215f-8003-9115-ccecddb20c52" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="30ee0c57-215f-8076-91cd-c1faaf591bad"><th id="vN{O" class="block-color-gray_background simple-table-header" style="width:120.484375px"><strong>Name</strong></th><th id="YSoL" class="block-color-gray_background simple-table-header" style="width:266.328125px"><strong>Location</strong></th><th id="CdGD" class="block-color-gray_background simple-table-header" style="width:734.328125px"><strong>Description</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="30ee0c57-215f-803c-b0d0-d5ac5d8caf50"><td id="vN{O" class="" style="width:120.484375px">Valoria (Capital)</td><td id="YSoL" class="" style="width:266.328125px">The Western Foothills, on the Eastern banks of the the Great Lake</td><td id="CdGD" class="" style="width:734.328125px">The proud and bustling capital of the Mehdian Republic, a relatively newer construction, built purposefully as a symbol of the Mehdian&#x27;s commitment to peace and progress after the Mad King&#x27;s overthrow.</td></tr></div><div style="display:contents" dir="ltr"><tr id="30ee0c57-215f-808b-b23d-ea9f91861a9e"><td id="vN{O" class="" style="width:120.484375px">Eastway</td><td id="YSoL" class="" style="width:266.328125px">The Mehdian Heartland, bordering the Grand Mehdian River and its northern tributary</td><td id="CdGD" class="" style="width:734.328125px">The former imperial heart, now a commercial giant. A city of immense economic power where wealth and shadows intertwine. It is the Mehdian Republic&#x27;s primary hub for internal trade , but remains the spiritual capital for those who wish to restore the old empire.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8056-a4ca-ea419e6b0323"><td id="vN{O" class="" style="width:120.484375px">Avarel</td><td id="YSoL" class="" style="width:266.328125px">Verdant Slopes, north of the Avarel Shield, on the coast.</td><td id="CdGD" class="" style="width:734.328125px">Avarel is a city focused on resource extraction and exploratory ventures into the relatively unknown eastern reaches of Geoctum. It&#x27;s a rougher, more independent city, attracting miners, prospectors, and pioneers.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-80d8-9cd8-f5d911ba1a5c"><td id="vN{O" class="" style="width:120.484375px">Itean</td><td id="YSoL" class="" style="width:266.328125px">The Mehdian Heartland, bordering the Whispering Woods</td><td id="CdGD" class="" style="width:734.328125px">The agricultural heartland, providing a constant supply of grain, produce, and cured meats to the other Mehdian cities. Its close proximity to the Whispering Woods has also made it a key centre for logging and timber trade. Home to the Cathedral of Radiant Tears</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-802f-bf9d-ce1853214f6e"><td id="vN{O" class="" style="width:120.484375px">Sourock</td><td id="YSoL" class="" style="width:266.328125px">Central Arid Scrublands</td><td id="CdGD" class="" style="width:734.328125px">Sourock is the southernmost city of the Mehdian Republic, and the closest reflection to the old empire. A bastion of old, sturdy stone standing as a bulwark on a volatile southern frontier. The city also has a high degree of racial prejudice against non-humans. </td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8060-9f6d-c5368919755e"><td id="vN{O" class="" style="width:120.484375px">Icedrift</td><td id="YSoL" class="" style="width:266.328125px">Southern Frost-Heart Tundra.</td><td id="CdGD" class="" style="width:734.328125px">The northernmost military bastion and a vital logistical hub for the Mehdian Empire on the continent of Geoctum. Its primary role is to stand as a bulwark against the dangers of the northern wilds, including the monstrous creatures and hostile tribes like the Frost-heart Clan and Ironhide Warbands.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-808d-80e8-e74c51d985f7"><td id="vN{O" class="" style="width:120.484375px">Duskwood</td><td id="YSoL" class="" style="width:266.328125px">High-Reach, North of the Moon-Veil Cloud Forest sitting on Copperlake</td><td id="CdGD" class="" style="width:734.328125px">A city built on the purpose of Discovery, turning into a western sentinel of defence. The industrial might of the Republic meets the eerie, beautiful silence of the West. It’s a city of heavy rain-cloaks, glowing indigo streetlights, and the constant sound of saws cutting through water-resistant timber.</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="312e0c57-215f-80a6-bafd-f873580f55cc" class="">Towns &amp; Villages</h3></div><div style="display:contents" dir="ltr"><table id="312e0c57-215f-80a5-bc10-cf7bf39afb2e" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8025-98e7-fae66b2c8951"><th id="B&lt;Kz" class="simple-table-header-color simple-table-header" style="width:139.328125px"><strong>Name</strong></th><th id="=xmT" class="simple-table-header-color simple-table-header" style="width:184.328125px"><strong>Location</strong></th><th id="U=i@" class="simple-table-header-color simple-table-header">Races</th><th id="}?hX" class="simple-table-header-color simple-table-header" style="width:687.328125px"><strong>Description</strong></th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-80a3-8ef8-e606f5f39d6e"><td id="B&lt;Kz" class="" style="width:139.328125px">Crossroads Haven</td><td id="=xmT" class="" style="width:184.328125px">Bordering the Eastern Foothills and the Mehdian Heartland. South of a small forest.</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">Crossroads Haven is a town defined by movement. It exists because of a confluence of paths: a well-travelled overland route connecting the Mehdian heartlands to the west intersects with a vital river trade route flowing to the south.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-80b4-9ca3-fed1bff0547f"><td id="B&lt;Kz" class="" style="width:139.328125px">Ironriver Crossing</td><td id="=xmT" class="" style="width:184.328125px">Eastern Foothills, north of the Serpents Tail.</td><td id="U=i@" class="">Human, Dwarf</td><td id="}?hX" class="" style="width:687.328125px">Ironriver Crossing is a fortress-town that serves as one of two important links between the Mehdian Republic and the nation of The Stoneheart Empire. It is a place of immense power and pressure, a finely balanced scale where the might of two nations meets.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8009-8c30-fcbae26bd1e0"><td id="B&lt;Kz" class="" style="width:139.328125px">Emberwood</td><td id="=xmT" class="" style="width:184.328125px">Central Mehdian Heartland, south of the Grand Mehdian.</td><td id="U=i@" class="">Human, Gnome, Half-Elf</td><td id="}?hX" class="" style="width:687.328125px">The village of Emberwood is situated on the Mehdian Heartland bordering a unique forest, the Emberwood. The grove is believed to be subtly influenced by a minor magical anomaly, which imbues the wood with strange and valuable properties.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-80c4-a378-f0f864c8ec82"><td id="B&lt;Kz" class="" style="width:139.328125px">Lakewatch</td><td id="=xmT" class="" style="width:184.328125px">High-Reach, On the Western banks of the Great Lake </td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">A major Mehdian trade hub, Lakewatch boasts a large, bustling port and is governed by a powerful merchant&#x27;s guild that controls a great deal of the commerce that crosses the lake. It is a cosmopolitan town, where sailors, merchants, and travellers from all over Geoctum can be found.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8038-8753-dd473f4936a1"><td id="B&lt;Kz" class="" style="width:139.328125px">Veridian Hollow</td><td id="=xmT" class="" style="width:184.328125px">Mehdian Heartland, north of the Wildfang Thicket.</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">Veridian Hollow is a small, peaceful, and somewhat isolated farming village nestled in a lush valley on the Verdant Slopes . The community&#x27;s entire way of life is built around the cultivation of a unique and beautiful crop: the Glimmer-vine.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-807f-9c46-c4f927de5cc8"><td id="B&lt;Kz" class="" style="width:139.328125px">Olden&#x27;s Ford</td><td id="=xmT" class="" style="width:184.328125px">Southern Mehdian Heartland, south of the Serpents Tail at the Eastern Road.</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">For as long as records have existed, this has been the primary crossing point on the river for a hundred miles in either direction, and the town grew from this simple fact, becoming a vital artery of trade and travel.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8038-8724-c2b25440cbc9"><td id="B&lt;Kz" class="" style="width:139.328125px">Whispering Hollow</td><td id="=xmT" class="" style="width:184.328125px">Western Foothills, north of the Great Lake.</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">The Whispering Hollow is a place of profound and unsettling quiet. The inhabitants rarely speak above a soft whisper, as the valley&#x27;s strange acoustics will catch a normal tone of voice and send it echoing and distorting for minutes on end.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8046-8260-f73b532110f8"><td id="B&lt;Kz" class="" style="width:139.328125px">Glasspool</td><td id="=xmT" class="" style="width:184.328125px">Western Foothills, bordering the Ash Wastes in the South</td><td id="U=i@" class="">Human, Half-Orc</td><td id="}?hX" class="" style="width:687.328125px">Glasspool exists in a perpetual, gentle haze. Steam from the numerous hot springs rises constantly, shrouding the town in a soft-focus mist that dampens sound and chills the air just beyond the pools&#x27; warmth.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8089-999a-e8d6c324a6e9"><td id="B&lt;Kz" class="" style="width:139.328125px">Ironheart Bastion</td><td id="=xmT" class="" style="width:184.328125px">Eastern Foothills in the north, built into the Dragon’s Spine.</td><td id="U=i@" class="">Human, Dwarf</td><td id="}?hX" class="" style="width:687.328125px">The Bastion is a marvel of military engineering, a fortress carved from the mountain as much as it is built against it. The culture is a seamless blend of the two founding races. The Dwarves provide the unyielding stoicism, the dedication to craft, and the mastery of stone and metal. The Humans bring their tactical flexibility, strategic organization, and a disciplined martial tradition. </td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-8044-9c96-c5398433dca1"><td id="B&lt;Kz" class="" style="width:139.328125px">Garrison&#x27;s Folly</td><td id="=xmT" class="" style="width:184.328125px">Arid Scrublands, western edge.</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">The town was founded on the ruins of an old, failed imperial outpost from the Tyrant&#x27;s era, prospectors discovered the site and found rich veins of high-quality Veinstone. The settlement grew around this mining operation, attracting tough, desperate folk looking to make a hard living.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-80e7-9de5-cba0c3f0615b"><td id="B&lt;Kz" class="" style="width:139.328125px">Tide’s End</td><td id="=xmT" class="" style="width:184.328125px">Obsidian Gateway, on the south-west coast</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">A small, isolated fishing village nestled in a sheltered cove on the continent&#x27;s rugged western coastline. They are a hardy, superstitious people who live off the sea&#x27;s bounty while maintaining a healthy fear of its mysteries.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-80a5-97c2-dc5725c74cb9"><td id="B&lt;Kz" class="" style="width:139.328125px">Mists-End</td><td id="=xmT" class="" style="width:184.328125px">On the Great Lake, Stillwater Isle</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">A small lighthouse village on a rocky island in the middle of the Great Lake. It serves as a navigational beacon for the merchant ships of Lakewatch, protecting them from the sudden fogs that roll off the Moon-Veil.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-808d-b098-dfea37385e42"><td id="B&lt;Kz" class="" style="width:139.328125px">Frost-Bite Point</td><td id="=xmT" class="" style="width:184.328125px">Border between the Eastern Foothills and the Frost-Heart Tundra</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">A town at the northern edge of the Dragon&#x27;s Spine that acts as the last &quot;warm&quot; stop before caravans head into the true Tundra. It’s where travellers trade their horses for mammoths or heavy-coated beasts.</td></tr></div><div style="display:contents" dir="ltr"><tr id="312e0c57-215f-80a4-becb-cb157c3cf5b3"><td id="B&lt;Kz" class="" style="width:139.328125px">Copper-Drain</td><td id="=xmT" class="" style="width:184.328125px">Obsidian Gateway, on the banks of the Ironflow River</td><td id="U=i@" class="">Human</td><td id="}?hX" class="" style="width:687.328125px">An Extraction Camp. This village filters the river silt to extract that copper. It provides the raw metal needed for the gears and wires of the High-Reach industry.</td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
