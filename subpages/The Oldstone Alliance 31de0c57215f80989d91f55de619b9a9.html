@@ -1,0 +1,744 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>The Oldstone Alliance</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="31de0c57-215f-8098-9d91-f55de619b9a9" class="page sans"><header><h1 class="page-title" dir="auto">The Oldstone Alliance</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-yellow">Aasimar</span><span class="selected-value select-value-color-purple">Dwarf</span><span class="selected-value select-value-color-blue">Elf</span><span class="selected-value select-value-color-green">Gnome</span><span class="selected-value select-value-color-red">Goliath</span><span class="selected-value select-value-color-pink">Half-Elf</span><span class="selected-value select-value-color-brown">Half-Orc</span><span class="selected-value select-value-color-gray">Halfling</span><span class="selected-value select-value-color-orange">Human</span><span class="selected-value select-value-color-blue">Kytinn</span><span class="selected-value select-value-color-green">Ss&#x27;kaal</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Text</th><td>The Oldstone Alliance is a continent-spanning militia that protects independent towns and villages in Geoctum. Founded by Captain Oldstone after the traumatic event known as the Pull, it promotes self-reliance and mutual aid among mixed-race settlements. The Alliance operates with a decentralized structure led by the Warden-General from Oakhaven, supported by Regional Wardens and local Town Captains. Its primary mission is to defend against banditry and monstrous incursions while fostering a sense of shared identity among diverse communities. The Alliance maintains cautious relationships with other nations, providing stability in areas they cannot control.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="31de0c57-215f-801b-bef1-d525ef6b585a" class="">The numerous free towns and villages scattered across Geoctum, independent of the major nations, are not left to fend for themselves. They are protected and loosely united by the Oldstone Alliance, a continent-spanning militia faction centralized in the town of Oakhaven. This faction embodies the resilience and self-reliance of those who forged new lives in the &quot;Free Age,&quot; a direct legacy of its pragmatic founder.</p></div><div style="display:contents" dir="auto"><h1 id="31de0c57-215f-807b-bae2-c35e5a98f5ac" class=""><strong>Origin</strong></h1></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-802d-ae16-dd3f65691bcd" class="">The Oldstone Alliance owes its existence directly to the traumatic event of the Pull. When <strong>Oakhaven</strong> was violently torn from its original world and deposited onto Geoctum, its immediate chaos demanded a leader. <strong>Captain Oldstone</strong>, then the resolute and pragmatic leader of Oakhaven&#x27;s small town guard, instinctively rose to the challenge. He rallied his people, and as other small, disoriented communities found themselves similarly adrift, Oldstone, understanding the shared predicament, extended his protection.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80d7-a801-cf66ba7625b4" class="">The First Alliance </h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-802e-9e8e-f540dba4d20d" class="">Oldstone, recognizing that scattered villages were easy prey in this strange new world, began forging alliances with nearby &quot;Pulled&quot; or newly established mixed-race settlements. He advocated for mutual support, shared patrols, and a unified response to threats, rather than waiting for help from the larger, insular nations.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-805a-8cbe-e2d1d269155e" class="">Over the centuries, this practical approach spread. As more towns emerged (either through new populations, intermarriage, or the slow expansion of established communities), the idea of a shared defence, organized and managed centrally, took root. The legacy of Captain Oldstone became the guiding principle: self-reliance, mutual aid, and unyielding protection for those without a king or queen.</p></div><div style="display:contents" dir="auto"><h1 id="31de0c57-215f-80c5-a2ec-d3a88b5d1b11" class=""><strong>Structure and Operations</strong></h1></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80f3-baef-c9f02af54d4f" class="">The Oldstone Alliance is a decentralized, yet coordinated, militia, designed for flexibility and rapid response within their local territories, with a strategic command centre in Oakhaven.</p></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-807b-82f0-c13501ed43b6" class="bulleted-list"><li style="list-style-type:disc"><strong>The Warden-General (Oakhaven-Based):</strong> <strong>Pipkin Meadowlight</strong>, a Halfling whose quiet wisdom and unwavering dedication to the independent towns have solidified the Alliance&#x27;s role in Geoctum. She embodies the spirit of vigilance and community that Oldstone first championed. She operates from Oakhaven, which functions as the militia&#x27;s spiritual and strategic headquarters. From here, she coordinates responses to major threats, oversees training standards, and manages resource distribution.</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-8091-9cdb-cd3a203f38a7" class="bulleted-list"><li style="list-style-type:disc"><strong>Regional Wardens:</strong> The vast lands mean the Warden-General relies on <strong>Regional Wardens</strong>, veteran commanders who oversee a cluster of towns and villages within a specific geographical area (e.g., the Western Plains Warden, the Riverlands Warden).</li></ul></div><div style="display:contents" dir="auto"><ul id="31de0c57-215f-809b-aa87-eab7cc1b5cf2" class="bulleted-list"><li style="list-style-type:disc"><strong>Town Captains &amp; Militias:</strong> Each individual mixed-race town or village maintains its own militia, led by a <strong>Town Captain</strong> (often a local hero or respected elder). These local militias handle day-to-day security and respond to minor threats. When larger dangers emerge, they are reinforced by other local Oldstone Alliance members or through strategic direction from their Regional Warden.</li></ul></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-800a-af48-ebae62f905ee" class="">The Alliance is a true reflection of the towns they protect. Their ranks include humans, halflings, half-orcs, gnomes, dwarves, and even individuals from other races who have integrated into these communities. This diversity brings a wide range of skills and perspectives to their defense.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80af-a281-ce5a4c31d00f" class="">Their primary role is to protect the independent towns and villages from banditry (Ragged Crowns, Grimfang Nomads), monstrous incursions, and the encroaching chaos of larger conflicts. They are the first line of defence for the common person outside the established national borders. By connecting disparate communities, the Oldstone Alliance inadvertently fosters a sense of shared identity among the mixed-race populace, creating a &quot;nation without borders&quot; and subtly encouraging inter-racial cooperation.</p></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8039-ba86-dbe7243eb337" class="">Their widespread presence makes them an invaluable source of information about the general state of the free lands, monster movements, and even the subtle activities of other factions outside major cities. As they are not aligned with any one nation, they often serve as neutral parties in disputes between independent towns or even as informal intermediaries in minor border disputes between the major powers.</p></div><div style="display:contents" dir="auto"><h2 id="31de0c57-215f-805c-b1a3-d07838694ba6" class="">Relationship with other Nations</h2></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80f7-bae4-d46b8adf4802" class=""><a href="Mehdian%2030ae0c57215f80d192d5de592fdc88a0.html">Mehdian Republic</a></h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8061-8d65-c84c82cf238a" class="">They are viewed with cautious respect. The Mehdian Council of Regents recognizes their role in maintaining order in areas they cannot directly control, and occasionally provides limited aid (tools, basic training) in exchange for intelligence. Regent Speaker Bella Cadence would be their staunchest advocate on the Council.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-803c-a657-eb9fae0aec5a" class=""><a href="Alfiya%20313e0c57215f80baa1b7ddb94ee85585.html">Alfiya</a></h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80f1-892c-eef1387b822d" class="">The Alliance often step in to help with disputes between the Elves and the Republic. </p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80fc-a06f-e9765e420c48" class=""><a href="The%20Stoneheart%20Empire%20313e0c57215f8040ba06dc4508d02fcb.html">The Stoneheart Empire</a></h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-8073-85e9-e1934f6b105c" class="">Generally ignored, who see them as &quot;surface affairs&quot;. The Alliance, in turn, focuses on their own territories.</p></div><div style="display:contents" dir="auto"><h3 id="31de0c57-215f-80a1-b089-e739b348d6b0" class=""><a href="The%20Wilders%20313e0c57215f80e593f2c1c222b39454.html">The Wilders</a></h3></div><div style="display:contents" dir="auto"><p id="31de0c57-215f-80d8-9bcd-ce377d149b37" class="">A complex relationship. They often clash over hunting grounds or resource use, but also share a mutual respect for self-reliance. Alliance members might occasionally cooperate with Wilders against a common monstrous threat.</p></div><div style="display:contents" dir="auto"><h1 id="31de0c57-215f-806e-9eb3-da31da5c14b5" class="">Settlements</h1></div><div style="display:contents" dir="ltr"><div id="31de0c57-215f-8041-9700-e5937109ee10" class="collection-content"><h4 class="collection-title">Oldstone Alliance Settlements</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Location</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Description</th></tr></thead><tbody><tr id="31de0c57-215f-80a7-8eda-e1f9a5378e13"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Oakhaven%20(Capital)%2031de0c57215f80a78edae1f9a5378e13.html">Oakhaven (Capital)</a></td><td class="cell-yVsQ">Northern Mehdian Heartland</td><td class="cell-rBXr">Oakhaven is a fortified settlement in a fertile valley, serving as the headquarters of the Oldstone Alliance. The city is characterized by concentric rings of development, with the outermost ring, Mercy’s Reach, bustling with activity and refugees. The Sovereign’s Forge is dedicated to producing essential goods, while Oldstone’ Watch houses established citizens and administrative functions. The Core, centered around the Great Oak, represents the town&#x27;s heart and history, featuring communal spaces like the Great Oak Tavern and the Hall of Remembrance, which preserve the town&#x27;s legacy and culture. The bridge leading into the Core symbolizes the connection between the past and present, emphasizing the importance of unity and sustenance for the Alliance&#x27;s survival.</td></tr><tr id="31de0c57-215f-8078-b83b-ee7e532c7437"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Silver%E2%80%99s%20Rest%2031de0c57215f8078b83bee7e532c7437.html">Silver’s Rest</a></td><td class="cell-yVsQ">South-Eastern Mehdian Heartland</td><td class="cell-rBXr">A picturesque village in a secluded valley, Silver&#x27;s Rest embodies tranquility and community with Halflings, Humans, and Wood Elves living harmoniously. The hero&#x27;s retirement here fosters peace, with a community watch ensuring safety. The village features charming cottages, a serene river, and the welcoming Hearth Hall, which serves as a communal gathering place, emphasizing warmth and shared experiences over conflict.</td></tr><tr id="346e0c57-215f-80dc-bf71-f83df5ced2e0"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Sunstone%20346e0c57215f80dcbf71f83df5ced2e0.html">Sunstone</a></td><td class="cell-yVsQ">Border of the Arid scrublands and the Ash Wastes.</td><td class="cell-rBXr">Sunstone is a fortified camp located at the border of arid scrublands and the Ash Wastes, characterized by its rugged architecture and a population of resilient inhabitants including humans, half-orcs, and exiled dragonborn. The settlement is strategically designed for defense, with a focus on deterrence, featuring multiple approaches with unique challenges and defenses. Key locations include the Dust-Devil Saloon, the Claim Jumper&#x27;s Office, and the Cog &amp; Anvil Smithy, each serving vital roles in the community. The outpost faces threats from nomadic raiders and ongoing tensions related to nearby dragonborn conflicts, while its economy is driven by mining and hunting resources unique to the harsh landscape.</td></tr><tr id="346e0c57-215f-8080-b81e-f9424202fe20"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Ammol%E2%80%99s%20Rock%20346e0c57215f8080b81ef9424202fe20.html">Ammol’s Rock</a></td><td class="cell-yVsQ">Central Dragon’s Tooth</td><td class="cell-rBXr">Ammol&#x27;s Rock is a fortress-town carved into the Dragon&#x27;s Tooth mountain, focused on mining common minerals, especially iron. Founded by the legendary Dwarven prospector Ammol, the town values hard work and community strength. Its architecture consists of stone chambers connected by staircases and steam-powered lifts. Key features include the Great Lode Hall for guild activities, the Pick &amp; Pint Tavern for miners to relax, and a bustling market for trade. The leadership includes Guild Master Borin Stoneforge and various foremen overseeing different aspects of mining and safety, each with distinct responsibilities and philosophies about mining and community welfare.</td></tr><tr id="347e0c57-215f-8093-aff8-dd9d8c0e4067"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Mistfall%20Crossing%20347e0c57215f8093aff8dd9d8c0e4067.html">Mistfall Crossing</a></td><td class="cell-yVsQ">Between Dragon’s Tooth and Dragon’s Heart</td><td class="cell-rBXr">Mistfall Crossing is a strategically important trade town known for its stunning waterfall and ancient stone bridge. It serves as a critical chokepoint for trade, blending cultures of Humans, Elves, and Dwarves under the Oldstone Alliance. Key features include the Warden&#x27;s Garrison, which provides security, and the Roaring Falls Inn, a lively social hub. The Lower Landing area is dedicated to fishing and commerce, featuring a market, smokehouse, and local eateries, all overseen by the knowledgeable unofficial wharfmaster, Silas Croft.</td></tr><tr id="347e0c57-215f-800c-b113-ec5f24a636e4"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Dustdevil%20Ridge%20347e0c57215f800cb113ec5f24a636e4.html">Dustdevil Ridge</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="347e0c57-215f-80d1-aaea-f66c1a1c7f61"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Silverstream%20347e0c57215f80d1aaeaf66c1a1c7f61.html">Silverstream</a></td><td class="cell-yVsQ">Central  Mehdian Heartland</td><td class="cell-rBXr">Silverstream is a vibrant trade town located in the central plains, characterized by its diverse population of various races including humans, elves, and dwarves. The town features a blend of sturdy timber and river stone architecture along the banks of a fast-flowing river, with bustling markets, a strong garrison presence, and an array of local artisans. Key locations include the Riverwatch Garrison, the lively Silverstream Market, the peaceful Weary Wanderer Inn, the respected Three-Bridge Smithy, and the Woodcarvers&#x27; Guild, all contributing to the town&#x27;s rich cultural tapestry and commerce.</td></tr><tr id="347e0c57-215f-80de-a8ae-c6c0261c931f"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Grimfang%20Holdfast%20347e0c57215f80dea8aec6c0261c931f.html">Grimfang Holdfast</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="347e0c57-215f-80b3-93cd-c4a7dcd7bdd2"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Skyreach%20347e0c57215f80b393cdc4a7dcd7bdd2.html">Skyreach</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="347e0c57-215f-8068-a6f5-fb192b4c0a0e"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/The%20Verdant%20Slopes%20347e0c57215f8068a6f5fb192b4c0a0e.html">The Verdant Slopes</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="347e0c57-215f-80b2-85c7-e2e7f3953609"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Stillfen%20347e0c57215f80b285c7e2e7f3953609.html">Stillfen</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="347e0c57-215f-80fe-b254-f76ac72005e7"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/The%20Strand%20347e0c57215f80feb254f76ac72005e7.html">The Strand</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="347e0c57-215f-8019-91c3-f332cfc0f861"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Salvage%20Point%20347e0c57215f801991c3f332cfc0f861.html">Salvage Point</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="347e0c57-215f-80ab-aeb9-f3032b0bba80"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/The%20Brink%20347e0c57215f80abaeb9f3032b0bba80.html">The Brink</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr"></td></tr><tr id="34ce0c57-215f-80ea-a64a-d6c2d60a0c53"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Oldstone%20Alliance%20Settlements/Terminus%2034ce0c57215f80eaa64ad6c2d60a0c53.html">Terminus</a></td><td class="cell-yVsQ"></td><td class="cell-rBXr">Terminus is a fortified village built to resist the encroaching Wildfang Thicket, featuring stone and basalt homes with iron shutters, narrow white‑stone paths, and no glass windows. Key areas include the Ash Plaza for processing slash‑wood, the Threshold tavern with frost‑covered interiors, and the Stratagems—a network of underground planning halls for explorers, mercenaries, and magic users. The village is protected by Frost‑Posts that create cold, misty chambers, Smoke‑Spires that emit a persistent smoke barrier, a clear white line marking safe ground, relic‑covered walls, and the ominous Vinegate—a ribcage gateway leading into the jungle. Overall, Terminus combines defensive architecture, specialized communal spaces, and environmental controls to survive the hostile surrounding thicket.</td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="ltr"><div id="347e0c57-215f-807f-9285-feb9e5d7a602" class="collection-content"><h4 class="collection-title">Town Captains &amp; Militias</h4><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>Name</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Summary</th></tr></thead><tbody><tr id="347e0c57-215f-80d9-a779-da32ea6ac15f"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Town%20Captains%20&amp;%20Militias/The%20Mistfall%20Guard%20347e0c57215f80d9a779da32ea6ac15f.html">The Mistfall Guard</a></td><td class="cell-dmsj">The Mistfall Guard is a disciplined force tasked with protecting Mistfall Crossing, particularly the strategic bridge. They patrol the town, enforce local laws, and respond to threats ranging from bandits to military assaults. Led by Captain Alistair Finch, a seasoned commander, the Guard is composed of veterans and local recruits trained in defensive tactics suitable for their role. Their presence reassures merchants and deters troublemakers, while Finch remains vigilant against threats from the Echoes of the Old Empire.</td></tr><tr id="347e0c57-215f-8049-b246-d59f87164cfc"><td class="cell-title"><a href="The%20Oldstone%20Alliance/Town%20Captains%20&amp;%20Militias/Riverwatch%20Garrison%20347e0c57215f8049b246d59f87164cfc.html">Riverwatch Garrison</a></td><td class="cell-dmsj">The Riverwatch Garrison protects trade routes to Silverstream, conducting patrols to safeguard caravans from bandits. Led by Captain Linnea Swiftwater, who balances commerce and diplomacy, and Lieutenant Bastien Hale, focused on security and defense, the garrison embodies a blend of military discipline and community engagement, navigating the tension between protection and trade.</td></tr></tbody></table></div><br/><br/></div></div><div style="display:contents" dir="auto"><p id="347e0c57-215f-8020-a2e8-d6380beda982" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

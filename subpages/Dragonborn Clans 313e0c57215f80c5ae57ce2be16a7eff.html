@@ -1,0 +1,745 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Dragonborn Clans</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="313e0c57-215f-80c5-ae57-ce2be16a7eff" class="page sans"><header><h1 class="page-title" dir="auto">Dragonborn Clans</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-red">Dragonborn</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Text</th><td>The Dragonborn of Geoctum consist of various clans divided by allegiance to Bahamut or Tiamat, leading to an ongoing internal conflict. Bahamut clans value justice and honor, while Tiamat clans prioritize power and greed. Key clans include the Adamant Scales, Sky-Sentinel, Tide-Breaker, Sunken Hoard, and Oasis Keepers, who embody noble ideals, contrasted by the aggressive Cinder-Scourge, Shadow-Fang, Frost-Heart, Storm-Chaser, and Venom Kin clans. Smaller groups like the Wandering Scales and Cinder-Heart Mercenaries seek freedom from the war. Relations with other nations are minimal, with Dragonborn viewing outsiders as largely irrelevant to their divine struggles.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="318e0c57-215f-80ab-922e-f1532d26e794" class="">The Dragonborn of Geoctum are not a unified nation, but a collection of ancient, powerful clans bound by their draconic heritage and, crucially, their unwavering devotion to either Bahamut, the Platinum Dragon, or Tiamat, the Chromatic Dragon. Their existence is largely defined by an age-old, internecine war, making them isolated and often oblivious to the politics of other races, whose concerns seem petty in comparison to their divine struggle. </p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-806d-aa0d-cea13c061df9" class="">History is passed down through epic sagas, often recounting ancient battles between their ancestral lines and divine prophecies related to their patron dragons. They are aware that this home is not their original one, but their long war has become their sole devotion.</p></div><div style="display:contents" dir="auto"><h1 id="318e0c57-215f-80b5-8585-cf765232332c" class="">Current Political Climate &amp; Relations</h1></div><div style="display:contents" dir="auto"><p id="318e0c57-215f-8047-8117-de2bb8636fe2" class="">The Dragonborn clans&#x27; politics are entirely internal, driven by their divine allegiance and the unending conflict. Each clan operates under the leadership of its strongest or wisest members, often elders or potent warriors. They are highly self-sufficient, relying on hunting, foraging in harsh lands, and rudimentary mining for their needs. Trade with other races is extremely rare.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80cc-8a96-cc26e8fbb987" class="">Their entire culture revolves around the worship and emulation of their patron dragon deity.</p></div><div style="display:contents" dir="auto"><ul id="31be0c57-215f-80d0-bc5c-e98b2bf95b0c" class="bulleted-list"><li style="list-style-type:disc">Bahamut Clans (Metallic): Emphasize justice, honour, loyalty, and the protection of the weak (though often from a position of detached power). Their traditions involve rigid codes of conduct, martial perfection, and the pursuit of noble deeds. They might seek out evil to fight it, seeing it as their divine duty.</li></ul></div><div style="display:contents" dir="auto"><ul id="31be0c57-215f-8091-91a9-dc6d4bc3c3eb" class="bulleted-list"><li style="list-style-type:disc">Tiamat Clans (Chromatic): Emphasize power, greed, cunning, and the subjugation of lesser beings. Their traditions involve displays of dominance, acquisition of wealth (often through force), and ruthless ambition. They seek to expand their territory and influence through conquest.</li></ul></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80d2-b2b0-df9fcca93320" class="">Their defining internal struggle is the constant, grinding conflict between Bahamut and Tiamat followers. This drains their population, prevents long-term development, and leaves them vulnerable to external threats if they ever became a collective target.</p></div><div style="display:contents" dir="auto"><h2 id="31be0c57-215f-803b-8c8c-f37af16018f3" class="">The Dragonborn Clans</h2></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8033-b379-fb2c4d553c41" class="">Thee following 5 clans strive to embody the noble ideals of Bahamut, the Platinum Dragon, though their methods can still be fierce. They tend to be more structured and honourable in their warfare.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-80c0-97cd-f99726c30f7e" class="">The Adamant Scales Clan</h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80f6-8fac-d01fbbbb2275" class=""><strong>Gold Dragonborn (though all metallic types are welcome)</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8041-8858-f56a9023cc41" class="">This clan is known for its unwavering adherence to a strict code of honour and justice. They are formidable warriors and strategists, valuing discipline and righteous combat. They often act as peacekeepers (within their own faction) and are dedicated to rooting out evil, particularly the influence of Tiamat&#x27;s followers. Their shamans often interpret ancient prophecies of Bahamut&#x27;s eventual triumph. They are found in the Southern reaches of <a href="../Geoctum/Geographical%20Summary%2030ae0c57215f802fa30adf7e75ee62ff.html">the Dragon’s Spine</a> near a hidden oasis, which they guard fiercely. They have a central, well-fortified mountain stronghold.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80e9-8821-cd270cf6b92a" class="">Elder Thane Kordax Sunforged is a Gold Dragonborn in his late 70s. A wise and imposing figure, known for his calm demeanour and strategic brilliance. He seeks to unite all Bahamut-aligned clans under a single, righteous banner.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-80c9-bb24-f1b006b97b02" class=""><strong>The Sky-Sentinel Clan</strong></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80b8-865d-fc333b78e151" class=""><strong>Silver Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80dc-8e68-d4b3cf084bb7" class="">These Dragonborn are known for their aerial prowess, often using their breath weapons to control the winds in battle. They are scouts and protectors of high places, valuing freedom and the open sky. They are more philosophical than other clans, often contemplating the nature of good and evil. They are keenly aware of the Blue Dragon, The Storm&#x27;s Echo, and interpret its presence as a challenge or a sign. They are observers of the sky, and so are found on the tallest mountain in the <a href="../Geoctum/Geographical%20Summary%2030ae0c57215f802fa30adf7e75ee62ff.html">Avarel Shield</a>. </p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80a2-a2d0-c0b3a7021bf4" class="">Their leader is Sky-Speaker Nythara Glimmerwing, a Silver Dragonborn female, in her early 50s. A serene but watchful leader, known for her prophetic dreams and her ability to read the subtle signs in the sky. She advocates for vigilance against all forms of corruption.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-80fc-b01f-d31e12b19471" class="">The Tide-Breaker Clan</h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8063-993c-dd9ccf221df6" class=""><strong>Bronze Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80ee-ac3d-fe1ad84f040d" class=""> This clan is known for its fierce independence and its mastery of coastal defence. They are skilled navigators of treacherous waters (though they never enter the Everstorm itself) and formidable warriors who specialize in amphibious assaults and defending their coastal strongholds. They have a strong sense of justice, often protecting any innocent travellers or creatures caught in the storm&#x27;s periphery. They might interpret the Bronze Dragon, The Tidal Guardian&#x27;s presence as a divine blessing. They can be found on the Eastern Coast, in coves or sea caves. </p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80a3-a33f-e6cd309c1962" class="">Seawatch Captain Kothar Scalebreaker is their leader. A Bronze Dragonborn, male, in his mid-50s. A gruff but honourable leader, known for his tenacity and his unwavering resolve in defending his clan&#x27;s coastal domains. He is wary of outsiders but respects courage.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-802f-be42-e2f2030bb0b9" class="">The Sunken Hoard Clan</h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-806a-8e05-d584201079f0" class=""><strong>Copper Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80f2-bf80-d4271d29e925" class="">This clan is renowned for its cunning, its love of riddles, and its meticulous hoarding of knowledge and unique treasures. They are master trap-setters and strategists, preferring to outwit their foes rather than engage in direct confrontation. They value cleverness and the accumulation of rare artifacts, which they see as a form of wisdom. They might occasionally interact with the Copper Dragon, seeking its wisdom or adding to its collection. Found in deep, labyrinthine canyon systems and intricate cave networks within the Whispering Canyons.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8081-8c5f-e50ccc9e1b08" class="">Their leader, Lore-Weaver Drakara Brightscale, is a female Copper Dragonborn in her late 60s. A sharp-witted and enigmatic leader, known for her intricate puzzles and her vast collection of secrets. She rarely reveals her true intentions.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-809e-8c89-d7bfcfeb013d" class=""><strong>The Oasis Keepers Clan</strong></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80b5-9a4b-fb2235d98040" class=""><strong>Brass Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80cc-b2f8-d3d14429c442" class="">They reside in the surprisingly fertile valleys of the Obsidian Gateway near to the Great Lake. This clan is known for its gregarious nature and its mastery of survival in harsh environments. They are skilled desert trackers and storytellers, valuing hospitality and the sharing of knowledge. They often act as guides for those who prove worthy, and fiercely defend their precious water sources from any who would defile them.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-808d-9412-e19a005f6596" class="">Wayfinder Zarathor Dawnkeeper is the clan’s leader. A male Brass Dragonborn in his early 50s. A charismatic and eloquent leader, known for his boundless enthusiasm and his ability to find common ground. He seeks to bring light and life to the desolate lands.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8004-aa1a-c4bbb2b0b719" class="">
+</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8033-a89c-eb9dd456d695" class="">The following 5 clans are ruthless and ambitious, driven by the desire for power, wealth, and the subjugation of others, all in the name of Tiamat, the Dragon Queen. Their warfare is often brutal and opportunistic.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8094-a60f-ec8cb18c1654" class="">The Cinder-Scourge Clan</h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8092-9b31-c916ac491da5" class=""><strong>Red Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80c4-b373-d686009f06ce" class="">This is a fiercely aggressive and territorial clan, known for their destructive power and their relentless pursuit of wealth. They are master raiders and conquerors, believing that strength is the only true law. Their shamans often perform rituals involving fire and sacrifice to appease Tiamat. They are constantly clashing with the Black Dragon, The Acid Mire Sovereign, and her clans, viewing it as a rival for territory. Concentrated in the most volcanic and desolate parts of the Ash Wastes, where the land is scarred and hot. Their lairs are often deep within lava tubes or active calderas.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-808a-991d-fce0c1b13256" class="">Warmistress Draga Rubyhide is a female Red Dragonborn in her early 30s. A brutal and ambitious leader, known for her ferocity in battle and her insatiable hunger for conquest. She united the broken red dragonborn clans and seeks to expand her clan&#x27;s dominion over the entire Ash Wastes.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-804b-bb66-f0e2809a786c" class=""><strong>The Shadow-Fang Clans</strong></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80f5-b0ea-fb9f638f6ac3" class=""><strong>Black Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-807a-aa04-f750c5b44091" class="">Rather than one big clan, the Shadow-Fang are split into lots of smaller clans. Known for their cunning, stealth, and insidious tactics. They are masters of ambush and psychological warfare, preferring to strike from the shadows and use poison or fear to break their enemies. They are highly territorial and fiercely protective of their dark domains. They often raid for slaves. Preferring dark, swampy regions, hidden caves, and areas with acidic pools or noxious gases. They often lair near underground rivers or in the fringes of the Beneath.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8076-b159-df96974c3c21" class="">The Frost-Heart Clan</h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8082-8464-d43c0ced9c8a" class=""><strong>White Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8095-b46b-cf3255b8613e" class="">This clan is defined by its brutal resilience and its primal ferocity. They are relentless hunters and survivalists, valuing endurance and raw power. Their society is often more primitive and direct, driven by a constant struggle against the cold and the scarcity of resources. They are fiercely territorial and view any warm-blooded intruders as prey. They might interpret the White Dragon, Nezhin, The Glacier&#x27;s Fury, as a primal, powerful deity to be appeased through displays of strength. They reside in the Frost-Heart Tundra, the coldest, most desolate northern reaches of Geoctum, often in glacial caves or atop perpetually snow-capped peaks.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8036-973d-c8cfc113cbad" class="">Chieftain Vorlag Ice-Fang is a White Dragonborn male in his early 70s. A grim and imposing leader, known for his relentless pursuit of prey and his mercilessness towards enemies. He rules through sheer force of will and a chilling aura of authority.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8073-8b16-c2411b1582a7" class=""><strong>The Storm-Chaser Clan</strong></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-803a-9a5e-fbb3e1f0140b" class=""><strong>Blue Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8051-9499-ea07e3c6e864" class="">This clan is known for its unpredictable nature and its mastery of the desert&#x27;s harsh elements. They are skilled ambushers, utilizing dust storms and lightning strikes to their advantage in battle. They are highly territorial and view any encroachment on their vast plains as a challenge to be met with overwhelming force. They inhabit the vast, salt plains in the Void, often near areas prone to severe dust storms or electrical phenomena.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8077-a5af-ce872c09df80" class="">Storm-Caller Fiera Dustwing a Blue Dragonborn female in her late 40s. A volatile and charismatic leader, known for her sudden rages and her ability to summon localized electrical storms. She believes in overwhelming force and unpredictable strikes.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-804f-aee2-eeccf4ba9678" class="">The Venom Kin</h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-809e-8614-c795335317b1" class=""><strong>Green Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80d0-81b6-fbee5d937b3c" class="">This clan is hidden from the world in the Wildfang Thicket. They specialize in the creation of exotic toxins that can erase memories, compel the truth, or rot a soul from the inside out. Experts in the art of the invisible strike, they prefer to dismantle an enemy’s life through blackmail and staged accidents long before a blade is ever drawn.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80d5-ab50-d3170eb81bd2" class="">They are profoundly manipulative, treating the politics of the underworld like a grand game of chess where every piece is dipped in poison. To the Kin, the Wildfang Thicket is not just a home, but a living laboratory, a sacred, suffocating sanctuary where they distil the essence of their god. They view Venomfang as the Prophet, the supreme manifestation of draconic supremacy who escaped one world to dominate another, and they serve as his hands, his eyes, and his cold, calculating heart.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80b7-a896-e67a75af125e" class="">They are led by Mist-Matron Kaida Fang. A cold, calculating leader, known for her patience, her mastery of poisons, and her ability to weave intricate webs of deceit. She rules through fear and subtle manipulation.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8021-bea4-e1708c6e75ff" class="">
+</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8020-8037-ce9aa20d81a9" class="">The following are smaller, often fragmented groups who have rejected the endless war, seeking their own path. They are often viewed with suspicion by both major factions. Any other Exiled Dragonborn are lone wanderers or have integrated into another nation.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8049-8ce5-ea20e0683809" class=""><strong>The Wandering Scales</strong></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80e8-b616-e6a72a23e92b" class=""><strong>Mixed (any type, but often those who felt alienated by their original clan&#x27;s dogma)</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80e7-b238-c2facee92bd0" class="">This &quot;clan&quot; is more a loose collective of individuals and small families who prioritize personal freedom and self-determination over divine allegiance. They are adaptable survivors, often skilled in various crafts or unique forms of magic. They seek knowledge and understanding, rather than conquest or rigid dogma. They are often the most open to interacting with other races, albeit cautiously. They are nomadic, constantly moving through the less-claimed wilderness, avoiding the territories of both Bahamut and Tiamat clans. They might occasionally trade with The Wilders or even isolated Oldstone Alliance towns.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80d3-91e7-f6cd49221311" class="">Their leader, The Wayfinder, Erno &quot;True-Sight&quot;, a Gold Dragonborn, in his mid 50s. A thoughtful and observant leader, known for his neutrality and his ability to find common ground. He seeks to understand the true nature of Geoctum and believes the endless war is a distraction from greater truths.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8008-b4e1-f91e67a633ae" class="">The Cinder-Heart Mercenaries </h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-808b-a397-e4cc6a15c416" class=""><strong>Red/Gold Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-800a-811c-f6c384b19e0f" class=""><em>&quot;Blood is cheap, fire is free, but loyalty costs everything.”</em></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8057-80d5-fc767453bc35" class="">These exiles have turned their destructive nature into a purely commercial enterprise. They follow a strict &quot;Code of the Coin&quot; that supersedes any draconic loyalty. They specialise in heavy siege warfare and &quot;scorched earth&quot; security. They are the only ones brave (or foolish) enough to take contracts for guarding caravans through the Void.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-806d-843b-c793b27ae489" class="">They have no permanent home, operating out of a massive, mobile wagon-city that constantly travels the trade route between Crossroads Haven and Valoria.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-8097-803d-fa864d1334c0" class="">Walker Ignis &quot;The Molten” is a massive, scarred warrior whose scales are a dull, soot-stained crimson. One of her horns is snapped halfway off, a trophy from a duel with a rival clan leader. She wears heavy plate armour made from the scales of beasts she has slain, often glowing dull red from her internal body heat. She is blunt, volatile, and fiercely protective. She handles the Field Operations of the Cinder-Hearts. Ignis doesn&#x27;t care about the politics of the Mehdian Republic or the whispers of the Coin Coven; she cares about the &quot;Weight of the Purse&quot; and the survival of her soldiers. She is the hammer that breaks the lines. </p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80ef-b49e-fe5257fbb8ec" class="">In stark contrast, Walker Aurum &quot;The Gilded” is sleek and elegant. His scales shimmer like polished bullion, and he keeps them meticulously clean despite the dust of the Barrens. He wears fine silks over reinforced leather and carries a staff topped with a sun-stone that hums with heat. He is calculating, charismatic, and silver-tongued. Aurum handles the Contracting and Logistics. He is the one who sits in the high parlours of Crossroads Haven or the Mehdian Council, negotiating the exorbitant fees the Cinder-Hearts demand. He views warfare as a ledger to be balanced.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80d5-a3b2-fe4a4c7dc596" class="">They are rarely seen apart. In the Cinder-Heart mobile city (The Great Hearth), they share a command tent filled with maps and looted finery. Their relationship is built on a &quot;Us Against the World&quot; mentality. They were both outcasts Ignis for being &quot;too chaotic&quot; for her original clan, and Aurum for being &quot;too greedy&quot; for his.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8027-8824-f5d633ddeefc" class="">The Salt-Scourge Corsairs </h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80f5-ae30-f6a556a11044" class=""><strong>Bronze/Black Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80ef-90a7-f8f235f9bd0a" class="">These exiles have taken to the Azure Depths and the jagged coastlines near Nestport. While the Mehdian Republic tries to maintain naval order, the Salt-Scourge clans rule the waves through intimidation and environmental mastery. They use their lightning and acid breath weapons beneath the waterline to corrode hulls and snap masts. They are also expert divers, salvaging treasures from shipwrecks that are too deep for air-breathers to reach. They own a great fleet of salvaged and stolen ships that act as their homes on the waves. Each ship has its own captain who makes decisions for their people.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8011-86d4-fb17e1148e70" class="">The Root-Bound Recluses</h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80a3-b9b7-c5c576fcd1bb" class=""><strong>Green Dragonborn</strong></p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80cf-b3c6-e3cd7e5cf80d" class="">While the Venom Kin serve Venomfang&#x27;s greed, the Root-Bound have chosen a path of isolation, becoming the Gardeners of the Apocalypse. They have learned to graft living plants onto their own scales. They can move through the thickest jungles of Geoctum without making a sound, as they are effectively living brush. Their territory is a section of the Wildfang Thicket so dense and bioluminescent that even Venomfang’s agents get lost in it.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-807b-b877-c33f04698ee8" class="">They are the Moral Mirror to Venomfang&#x27;s clan. They occasionally rescue travellers who have become lost in the Thicket or have been marked for death by the Coin Coven, spiriting them away into the Deep-Glow where the Coven’s assassins cannot follow.</p></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80c4-8750-c5f3e2ff113d" class="">Ambrosia is an ancient Dryad whose bark-like skin is etched with Draconic runes, not carved by force, but grown naturally into her form. Her &quot;hair&quot; is a cascading mane of willow leaves and glowing moss that shifts colour with her mood. She is often seen fused partially into the trunk of a massive, sentient Great Oak at the heart of the Deep-Glow. She leads the Root-Bound Recluses, not through might or fear like a dragon, but more like a Great Mother of the clan. She took in the first Green exiles centuries ago when they fled the divine wars of their kin. She taught them how to hush their scales and breathe life into the soil rather than poison into the air.</p></div><div style="display:contents" dir="auto"><h2 id="31be0c57-215f-80ed-974f-cd725ee5dece" class="">Relationship with other Nations</h2></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-802c-b631-caaf8016622a" class=""><a href="Mehdian%2030ae0c57215f80d192d5de592fdc88a0.html">Mehdian Republic</a></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80ad-8ae9-e34fe1c2363a" class="">Most Dragonborn clans have virtually no political interaction with the Mehdian. They see humans as short-lived, transient creatures whose squabbles (like the Dark Age) are beneath their notice. Raids might occur if Mehdian territory encroaches on valuable clan resources, but it&#x27;s purely territorial, not political. The Mehdian settlements in the far North and far South would be most affected. The Bronze Dragonborn work with the local villages and travellers in the Obsidian Gateway. </p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-80ca-a624-d6f7946f85a1" class=""><a href="Alfiya%20313e0c57215f80baa1b7ddb94ee85585.html">Alfiya</a> &amp; <a href="The%20Stoneheart%20Empire%20313e0c57215f8040ba06dc4508d02fcb.html">The Stoneheart Empire</a></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-800a-a136-c1c7e0145338" class="">The Elves&#x27; and Dwarves&#x27; concerns are entirely alien to the Dragonborn&#x27;s draconic perspective. Some might be vaguely aware of their cities but see them as irrelevant.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-8091-ba7b-d35ebf20052a" class=""><a href="The%20Wilders%20313e0c57215f80e593f2c1c222b39454.html">The Wilders</a></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-809a-ae16-fa0f474f69a6" class="">The Dragonborn clans often inhabit rough, untamed lands that sometimes overlap with Wilder territories. This leads to frequent, but usually localized, skirmishes over resources or hunting grounds. Neither faction seeks prolonged conflict with the other, preferring to stick to their respective ways of life.</p></div><div style="display:contents" dir="auto"><h3 id="31be0c57-215f-80be-8358-ea6628eee9eb" class=""><strong><a href="Vanalir%20313e0c57215f80d082efe64d7dc71f5e.html">Vanalir</a></strong></h3></div><div style="display:contents" dir="auto"><p id="31be0c57-215f-80d1-917f-c39b73ab7ca2" class="">The Southern Dragonborn Clans often come into conflict with the Tieflings over territory or through raiding their settlements.</p></div><div style="display:contents" dir="auto"><h1 id="32be0c57-215f-8029-9adf-fe637d9b850e" class="">Religion</h1></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-8053-a015-d8c81c2c690a" class="">In Geoctum, the Dragonborn Clans exist in a state of perpetual, holy stagnation. They have received no new orders, no divine visions, and no manifestations of their gods for centuries. Yet, they continue to fight because for a Dragonborn, to stop the war would be to admit that their existence on Geoctum is meaningless.</p></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-8002-add4-c9804edc6309" class="">The Dragonborn are split into two primary factions, with a small third group of outcasts:</p></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-8012-bd8f-c98932e3bd7a" class="bulleted-list"><li style="list-style-type:disc"><strong>Bahamut-Aligned (Metallic Clans)</strong>: These clans (Gold, Silver, Bronze, Copper, Brass) strive to embody justice, honour, and protection. They view themselves as the &quot;Sentinels of Geoctum”, even if no one asked them to be.</li></ul></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-8026-a4ed-f8eb1215ab6d" class="bulleted-list"><li style="list-style-type:disc"><strong>Tiamat-Aligned (Chromatic Clans)</strong>: These clans (Red, Blue, Green, Black, White) are driven by a philosophy of primal power, territorial dominance, and the belief that the &quot;weak&quot; (non-chromatics) must be subjugated.</li></ul></div><div style="display:contents" dir="auto"><ul id="32be0c57-215f-8049-9629-e798741bfb64" class="bulleted-list"><li style="list-style-type:disc"><strong>The Exiles:</strong> A small third sect that has abandoned the war to live as mercenaries or wanderers, often viewed as heretics by both sides.</li></ul></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-80e9-9120-fe23265d6c10" class="">Without direct guidance, their worship has shifted toward interpreting &quot;Signs&quot; and &quot;Prophecies&quot; from the landscape itself. The Metallic clans believe Bahamut is not silent, but testing them. They view the Veil as a forge meant to temper their resolve. The Chromatic clans view the silence of Tiamat as a command to Take what is yours. They believe she has left them this world to conquer as a trial of strength.</p></div><div style="display:contents" dir="auto"><p id="32be0c57-215f-804d-96cf-e704ae550159" class="">The war is no longer a grand tactical campaign but a series of brutal, ritualistic skirmishes. They occupy the harshest lands, volcanic wastes, craggy peaks, and frozen glaciers, viewing these landscapes as sacred ground imbued with draconic power. They are largely oblivious to the politics of &quot;lesser&quot; races like Humans or Elves. To a Dragonborn, a trade dispute in Valoria is a petty distraction compared to the eternal struggle between the Platinum Dragon and the Chromatic Queen. <br/></p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
