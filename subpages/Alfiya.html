@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Alfiya</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="313e0c57-215f-80ba-a1b7-ddb94ee85585" class="page sans"><header><h1 class="page-title" dir="auto">Alfiya</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/list_gray.svg" style="width:14px;height:14px;display:block"/></span>Tags</th><td><span class="selected-value select-value-color-blue">Elf</span><span class="selected-value select-value-color-pink">Half-Elf</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>Text</th><td>Alfiya is an elven nation located in the Whispering Woods, centered around the living city of Cosminas, governed by the Conclave of Elder Branches. The Conclave consists of representatives from various elven sub-races, each with unique roles and perspectives. The city features a harmonious blend of nature and magic, with interconnected living structures and bioluminescent flora. Relations with neighboring nations are cautious, particularly with Mehdian, while the Elves maintain a rich spiritual tradition centered around the Great Song, emphasizing their connection to nature and vigilance against past atrocities.</td></tr></tbody></table></header><div class="page-body"><div style="display:contents" dir="auto"><p id="313e0c57-215f-80a3-98f3-e58149541d7e" class="">Alfiya (Al-fi-ya) is an exclusively elven nation. They are found in the Whispering Woods in their colossal, living city, universally known as Cosminas. It stands as a testament to Elven longevity, artistry, and their ability to forge unity even across sub-racial divides, though beneath the surface, ancient sorrows linger.</p></div><div style="display:contents" dir="auto"><h1 id="313e0c57-215f-8081-a767-d491934a5b77" class="">Current Political Climate &amp; Relations</h1></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80c2-8106-f53142a7a025" class="">Cosminas&#x27;s politics are deeply shaped by its past, particularly the Dark Age and the Mad King&#x27;s rule, and their unique structure as a singular city-nation. </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-806c-9de1-fd61306af0b3" class="">Cosminas is ruled by the Conclave of Elder Branches, a council composed of the oldest and most magically adept Elves from each prominent sub-racial lineage within the city. Due to their long lifespans, Elves in Cosminas experience time differently. Events that seem momentous to humans are often viewed as fleeting moments in a much grander, slower unfolding of history. This can make their decision-making frustratingly slow for other races.</p></div><div style="display:contents" dir="auto"><h2 id="313e0c57-215f-800a-a005-f705379c4162" class="">Conclave of Elder Branches</h2></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-80f4-a6c9-ef0b2524cd10" class="">High Elder Lorekeeper Sylvanius Greenleaf</h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-803e-aad8-da85496c602a" class="">Sylvanius is the voice of the Wood Elves on the Conclave and the primary keeper of Alfiya&#x27;s oral traditions and natural lore. He champions the integration of nature within Cosminas and advocates for cautious, sustainable growth. He is particularly attuned to the health of the Heart-Grove of Whisperleaf and the broader wilderness. He guides the Conclave on matters of ecological health, resource management, and relations with the Root-Keepers of Whisperleaf and The Wilders. He spends time communing with the city&#x27;s living architecture, sensing its well-being.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8090-bd56-d134dc605ded" class="">An ancient and weathered wood elf, with skin that seems to subtly shift colours like dappled sunlight on leaves. His eyes are a deep, forest green, constantly observing. He wears robes woven from living vines and leaves, and his long, silver-streaked hair is intricately braided with small, blooming flowers. He carries a staff of living oak, its branches constantly growing and shedding.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-803a-9bf7-d685f6e3018a" class="">He is patient, grounded, and deeply connected to the cycles of nature. He speaks softly but with immense authority, his words carrying the weight of centuries of observation. He is wary of rapid change and artificiality, preferring organic solutions. He can be surprisingly fierce when the natural balance is threatened.</p></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-809e-a5a6-e35cef7ead69" class="">High Elder Arcanist Aerion Stargazer</h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80a7-bdce-c06dc6b3c967" class="">Aerion is the representative of the High Elves and the Conclave&#x27;s foremost expert on arcane matters, ancient magic, and celestial observations. He oversees the city&#x27;s magical defences, its arcane academies, and its long-range divinations. He is the intellectual and magical bulwark of Cosminas. He guides the Conclave on magical threats, advises on arcane defences, and interprets complex magical phenomena. He spends much time in Cosminas&#x27;s highest spires, observing the pink sky and blue sun, and charting the flickering stars.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8060-be06-e24d60a206c3" class="">He possesses the classic regal bearing of a High Elf, with sharp, intelligent features and eyes that seem to hold the light of distant stars. His silver hair is long and flows freely, sometimes sparking with faint arcane energy. He wears robes of deep blue, embroidered with intricate celestial and arcane symbols. His hands are slender and often gesture with elegant precision as he speaks.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8009-8d77-debc70f5e645" class="">He is calm, analytical, and profoundly wise. He values knowledge, precision, and the elegant application of magic. He can be somewhat detached from the mundane concerns of daily life, but his counsel is invaluable in times of crisis. He is deeply concerned with preserving ancient Elven magical traditions.</p></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-80e8-b640-f4c853cbd89e" class="">High Elder Tide-Speaker Serilune Wavecrest</h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-800d-9f20-d4950d72a039" class="">Serilune represents the Sea Elves on the Conclave, bringing a unique perspective on Geoctum&#x27;s minimal coastlines and the mysteries of its waters. She is the keeper of their ancient maritime lore and the memory of their oceanic past, even if that past is now largely confined to fragmented tales.  She advises the Conclave on matters related to coastal defence, the health of Geoctum&#x27;s limited oceans, and any unusual phenomena emanating from the water. She maintains what little contact is possible with the few remaining Sea Elf enclaves.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80ec-9935-d69cdc3b3262" class="">Her skin has a subtle, pearlescent sheen, and her eyes are the colour of deep ocean water. Her long, dark hair is often adorned with intricate shell and coral ornaments. She moves with a fluid, graceful motion, even on land, and her voice has a soft, murmuring quality, like distant waves. She carries a trident that seems to shimmer with water.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80ad-a6bc-f9e1121dacdc" class="">Patient, adaptable, and deeply intuitive. She values the flow of life and the interconnectedness of all things. She can be enigmatic, often speaking in riddles or poetic metaphors drawn from the sea. She is fiercely protective of her people and the fragile coastal ecosystems.</p></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-8064-914b-d755752aadfe" class="">High Elder Dream-Weaver Faelar Moonwhisper</h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8045-870f-e8d3b04b806d" class="">Faelar represents the Moon Elves on the Conclave and is the primary interpreter of dreams, portents, and the subtle influences of the moon and stars on Geoctum. She guides the Conclave on matters of spiritual well-being, hidden truths, and the less tangible threats to the city. Faelar spends much time in quiet contemplation, observing the flickering stars and the two moons, interpreting their subtle shifts. She advises the Conclave on matters of morale, hidden dangers, and the spiritual health of the city. She uses prophetic dreams or subtle divinations to guide her counsel.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80b8-91a7-cc2417b357a7" class="">She possesses a graceful, almost ethereal beauty, with skin that seems to subtly glow in dim light and eyes that are a pale, luminous silver. Her hair is often a cascade of dark blue or violet, adorned with star-shaped silver pins. She wears flowing, layered robes that evoke the night sky.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80dd-916b-ebcb9c94ca66" class="">Intuitive, empathetic, and often contemplative. She is known for her quiet wisdom and her ability to perceive patterns and connections that others miss. She can be melancholic, touched by the echoes of lost worlds, but also possesses a deep, enduring hope. She values harmony and inner peace.</p></div><div style="display:contents" dir="auto"><h2 id="313e0c57-215f-800f-b2db-f5095390ec51" class="">Relationship with other Nations</h2></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-802e-9f21-fea4854554c3" class=""><a href="Mehdian%2030ae0c57215f80d192d5de592fdc88a0.html">Mehdian Republic</a></h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8000-98d5-c8d752980dbd" class="">While there is formal peace, the scars of the Dark Age run deep. Cosminas maintains a highly wary stance towards the Mehdian. They participate in limited, necessary trade, but their borders are heavily guarded by subtle magic and skilled Rangers. Many Elders of Cosminas remember the atrocities of the Mad King, and his predecessors, personally. They preach cautious diplomacy, but their counsel is rooted in a fundamental belief that human ambition is inherently dangerous and must be constantly watched.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80c1-9d78-c1d441a2484f" class="">Cosminas has a network of quiet, subtle agents who monitor Mehdian movements, particularly any hints of dark power re-emerging or &quot;Echoes of the Old Empire&quot; activity.</p></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-8082-b7de-e4b56faad592" class=""><a href="The%20Stoneheart%20Empire%20313e0c57215f8040ba06dc4508d02fcb.html">Stoneheart Empire</a></h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8086-987a-f44a95c372bc" class="">Due to the distance between these two nations, a mutual, distant respect exists for The Stoneheart Empire&#x27;s craftsmanship and long histories. Direct contact is rare, limited to specialized trade. Cosminas is largely unaware of The Stoneheart Empire&#x27;s growing concerns about Drow probes.</p></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-809b-8009-c9aa2e2f403a" class=""><a href="The%20Wilders%20313e0c57215f80e593f2c1c222b39454.html">The Wilders</a></h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80bc-9677-f41963a5ef87" class="">Cosminas views the Wood Elves and Half-Elves within The Wilders with a mix of kinship and quiet disapproval. They respect their connection to nature but see their nomadic, unorganized lifestyle as a rejection of Elven potential. They might offer aid if Wilders are in extreme peril, but rarely seek them out.</p></div><div style="display:contents" dir="auto"><h3 id="313e0c57-215f-8034-b8a4-c7c314e7fc1a" class=""><a href="Vanalir%20313e0c57215f80d082efe64d7dc71f5e.html">The Vanalir</a></h3></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8014-9dfd-e51b108b3e2b" class="">Cosminas sees the Vanalir as the &quot;Hellspawn,&quot; shrouded in sinister mystery due to their appearance and reclusive nature. Elven diviners glimpse fragments of strange planar energy which they interpret it as demonic corruption due to their looks.</p></div><div style="display:contents" dir="auto"><h1 id="313e0c57-215f-8048-8473-cb61f475209b" class="">Religion</h1></div><div style="display:contents" dir="auto"><h2 id="313e0c57-215f-807d-9d8c-cb4edc1fe391" class="">The Great Song</h2></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80fe-88c6-fa006a110916" class="">The Great Song is a bio-magical and oral tradition used to &quot;sing the world into balance&quot;. Cosminas places immense value on communal artistry, particularly song, poetry, and intricate dance. While not a literal collective consciousness like some other pulled races, their communal memory and history are often preserved through these living art forms. </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80c6-b8fd-d3f042ff63e2" class="">Because many Elven Elders personally remember the atrocities of the Mad King, their religion is heavily tinged with Vigilance. They believe their gods turned away from them when the tyranny of the human empire overran the world. They don&#x27;t just worship these gods; they work, wait, and watch for their return. Though when their diviners see strange energy, they are often quick to suspect demonic corruption rather than the hand of a divine. </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-808d-a4aa-c499e257fb68" class="">The Elves of Cosminas see themselves as the last true guardians of their Patron, Corellon Larethian’s, artistic and magical legacy in a world that has forgotten him.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8093-8837-feffa5048863" class="">The Weaver of the Song is Mystra, who was believed to be unravelled by the Mad King’s Inquisitors.  </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80ba-9478-dbbd604e1c5b" class="">They believe that the sun, Pelor, turned from yellow to lavender because he turned his face away in shame during the Dark Age when the Elves were enslaved. </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8037-9b7b-f63908e224c2" class="">Particularly important to the Moon Elves of the Conclave, Selûne, the Vigilant Eye, and her sister Shar, the Merciful Oblivion, are the two moons that dance across the night sky. When Shar blocks out Selûne, the Elves see this a sign of darkness and loss. In their oral history, Shar blocked out Selûne during entirety of the Dark Age. The cycle of the Moons’ are the only reliable rhythm left in their fragmented world. </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80a3-a86d-c873fd5894cb" class="">They worship Silvanus as their god of life, nature and protection. They revere him through the Living Architecture, seeing every grown bridge and woven branch as a prayer to a god of the land. They see Silvanus as the only god to have not totally abandoned them in their time of hardship and shame, though he like the others does not speak to them anymore.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80ed-9700-e13818e0dc2e" class="">While the world fears the Everstorm, the Sea Elves likely the sea as the Unbroken Path to their lost homes and a challenge of redemption from Deep Sashelas, the god of the sea, who has left the sea to become increasingly violent and chaotic.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80d6-85d7-f094c8be6cdd" class="">Knowledge is not found in blank scrolls but in the Communal Memory. They view Oghma as the Silent Librarian who holds the books the Mad King burned. Their long, deliberate debates in the Conclave are seen as a way to reconstruct Oghma’s lost truths.</p></div><div style="display:contents" dir="auto"><h1 id="313e0c57-215f-8077-a4fa-c8904f9fbcfd" class="">Cosminas</h1></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8070-a2c5-eaffc54e34fb" class="">Cosminas rises from its surrounding ancient forest like a series of interconnected, colossal trees and crystalline spires, all woven together by intricate pathways and shimmering magical light. It is a city of soft curves, flowing lines, and organic forms, utterly unlike the rigid geometry of human settlements or the stark angles of dwarven delves.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80b0-afb4-ec83b5a24ee5" class="">Cosminas is a multi-layered, vertical city. Pathways are not straight roads but woven branches, living root bridges, and spiralling ramps that ascend and descend through the colossal tree-structures. There are no rigid grids, but a flowing, intuitive layout that feels both natural and profoundly alien to non-Elven sensibilities. Every part of the city feels connected, not just physically, but energetically. The living structures seem to hum with a quiet, vital energy, a testament to the continuous bio-magical work of its inhabitants. The primary structures are not hewn stone or cut timber, but ancient, magically-infused trees that have been coaxed and shaped over centuries to form towering spires, broad platforms, and intricate chambers. Their bark is smooth and iridescent, often subtly patterned. </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8090-a1a3-f87c01dde833" class="">Interspersed among the living trees are massive, naturally occurring crystal formations, some clear as water, others glowing with soft, internal light in shades of pale green, blue, or violet. These crystals are not merely decorative; they are integrated into the city&#x27;s structure, channelling light, energy, and even acting as conduits for magical defences. The living trees themselves can shift, grow thorns, or emit soporific spores. Crystals can focus arcane energy into defensive barriers or offensive blasts. Pathways can subtly reconfigure to confuse intruders. The entire city is a living, breathing fortress, seemingly peaceful but profoundly dangerous to those who would threaten it. </p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-806e-8f73-df88bac6f92d" class="">The city is lit by a network of bioluminescent flora – glowing mosses, luminous fungi, and flowers that emit soft, ambient light. This creates a perpetual twilight within the city&#x27;s depths, a shimmering, otherworldly glow that shifts with the passage of the lavender sun.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-8002-ba5a-e892cb61f249" class="">Parks and gardens are not separate entities, but an integral part of the city. Trees grow through buildings, waterfalls cascade from high platforms into reflecting pools below, and natural springs bubble up within communal areas. To approach Cosminas is to witness a living mountain of verdant spires and shimmering crystal. From within, it feels like an endless, intricate forest that has become a world unto itself, where every path leads to a new wonder, and the sky is often a canopy of living leaves and glowing crystals rather than the open purple heavens of Geoctum. Its sheer size is a testament to centuries of patient, organic growth guided by powerful bio-magic.</p></div><div style="display:contents" dir="auto"><p id="313e0c57-215f-80ae-827c-fcca06b71b99" class="">While the city is a unified whole, subtle distinctions mark the influence of its diverse Elven sub-races:</p></div><div style="display:contents" dir="auto"><ul id="313e0c57-215f-800f-812f-c2c2e5369721" class="bulleted-list"><li style="list-style-type:disc">Wood Elf areas: Might be deeper within the canopy, with more rustic, interwoven dwellings and closer ties to the surrounding wild.</li></ul></div><div style="display:contents" dir="auto"><ul id="313e0c57-215f-8059-95fb-d915cda0428b" class="bulleted-list"><li style="list-style-type:disc">High Elf areas: Tend towards the higher, more crystalline spires, with grander, more magically refined structures and arcane academies.</li></ul></div><div style="display:contents" dir="auto"><ul id="313e0c57-215f-80d8-9f09-ef0b95c4bc11" class="bulleted-list"><li style="list-style-type:disc">Sea Elf areas: Located near the city&#x27;s few internal waterways or where its colossal trees touch large lakes, with structures that seem to flow and shimmer like water.</li></ul></div><div style="display:contents" dir="auto"><ul id="313e0c57-215f-80fa-a472-e72091d1d8b6" class="bulleted-list"><li style="list-style-type:disc">Moon Elf areas: Often in secluded, moon-dappled glades or higher platforms that offer clear views of the flickering stars, dedicated to contemplation and dream-weaving.</li></ul></div><div style="display:contents" dir="auto"><ul id="313e0c57-215f-8059-a9ac-c601ef3b1251" class="bulleted-list"><li style="list-style-type:disc">Drow areas: In the roots and deepest parts of the colossal trees, where the light does not reach and alien nature grows.</li></ul></div><div style="display:contents" dir="auto"><ul id="313e0c57-215f-8080-b72c-cfea2c426778" class="bulleted-list"><li style="list-style-type:disc">Half-Elf areas: Found at the base of the trees, where they can come and go with ease allowing them to explore their elven roots and the roots of their other race.</li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
